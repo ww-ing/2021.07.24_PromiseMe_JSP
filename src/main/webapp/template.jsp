@@ -35,7 +35,7 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">약속해줘</a>
+  <a class="navbar-brand" href="#">사이트명</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
@@ -62,7 +62,9 @@
 <!--  container content------------------------------------- -->
 <div class="container mt-5" style="height:700px;">
 	<div class="row">
-		<div class="col-md-8">여기에 컨텐츠가 들어감</div>
+		<div class="col-md-8">
+		
+		</div>
 	</div><!-- .row end -->
 </div>
 <!--  ------------------------------------------------------ -->
