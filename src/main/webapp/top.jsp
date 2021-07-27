@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="user.domain.*" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +24,11 @@
 
 <%	//컨텍츠명
 	String myctx = request.getContextPath();
+
+	//세션에 저장된 loginUser 꺼내기
+	UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+	
+	boolean isLogin =(loginUser==null)? false: true;//로그인 했다면 true
 %>
 
 <!-- navbar---------------------------------------------  -->
@@ -29,12 +36,37 @@
 
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
+  
+<%
+	//로그인일 경우
+	if(isLogin){
+%>	
+    
     <li class="nav-item">
+      <a class="nav-link" href="<%=myctx%>/login/logout.jsp"><h3>로그아웃</h3></a>
+    </li>
+    
+	<li class="nav-item">
+      <a class="nav-link text-dark" href="#"><h4><%=loginUser.getUserid()%></h4>
+      <%--<%=loginTime %>  --%>
+      </a>
+    </li>    
+<%    
+	//로그아웃일 경우
+    }else{
+%>	    	
+	<li class="nav-item">
       <a class="nav-link" href="<%=myctx%>/login/login.jsp"><h3>로그인</h3></a>
     </li>
+
     <li class="nav-item">
       <a class="nav-link" href="<%=myctx%>/member/join.jsp"><h3>회원가입</h3></a>
-      </li>
+    </li>    
+<%    	
+    }
+%>  
+
+
   </ul>
 </nav>
 
@@ -47,13 +79,20 @@
     <li class="nav-item">
       <a class="nav-link" href="#">예약하기</a>
     </li>
+    
     <li class="nav-item">
-      <a class="nav-link" href="#">미리보기</a>
+      <a class="nav-link" href="#">계정관리</a>
     </li>
-        <li class="nav-item">
+    
+    <li class="nav-item">
+      <a class="nav-link" href="#">회원목록</a>
+    </li>
+    
+    <li class="nav-item">
       <a class="nav-link" href="#">팀원모집</a>
-    </li>
-        <li class="nav-item">
+    </li>    
+    
+    <li class="nav-item">
       <a class="nav-link" href="#">고객센터</a>
     </li>
   </ul>

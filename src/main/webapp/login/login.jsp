@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사이트명</title>
+<title>로그인</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -95,7 +95,7 @@
     				<tr>
     					<td colspan="2" class="text-center">
     						<button class="btn btn-primary">Login</button>
-    						<button class="btn btn-danger">회원가입</button>
+    						<button type="reset" class="btn btn-danger ">다시쓰기</button>
     						
     					</td>
     				</tr>
