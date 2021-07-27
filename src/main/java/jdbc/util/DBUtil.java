@@ -8,7 +8,7 @@ public class DBUtil {
 	
 	private static String url = "jdbc:oracle:thin:@10.211.55.4:1521:xe";
 	private static String user = "promise_me";
-	private static String password = "tiger";
+	private static String password = "lion";
 	
 	private DBUtil() {
 		

@@ -33,7 +33,7 @@
       <a class="nav-link" href="<%=myctx%>/login/login.jsp"><h3>로그인</h3></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<%=myctx%>/join/join.jsp"><h3>회원가입</h3></a>
+      <a class="nav-link" href="<%=myctx%>/member/join.jsp"><h3>회원가입</h3></a>
       </li>
   </ul>
 </nav>
