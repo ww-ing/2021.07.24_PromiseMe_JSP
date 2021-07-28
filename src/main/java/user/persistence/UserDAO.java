@@ -1,11 +1,16 @@
 package user.persistence;
 
-import jdbc.util.*;
+
 import java.sql.*;
 import java.util.*;
+import jdbc.util.*;
 import user.domain.*;
 
-public class UserDAO extends DAOBase{
+public class UserDAO{
+	
+	protected Connection con;
+	protected PreparedStatement ps;
+	protected ResultSet rs;
 	
 	public UserDAO() {
 		System.out.println("UserDAO()생성됨...");
@@ -15,6 +20,18 @@ public class UserDAO extends DAOBase{
 	 * 회원번호: MEMBER_SEQ시퀀스를 이용
 	 * 등록일: SYSDATE함수 사용
 	 * */
+	
+	public void close() {
+		try {
+		if(rs!=null) rs.close();
+		if(ps!=null) ps.close();
+		if(con!=null) con.close();
+		
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}	
+	
 	public int createUser(UserVO user) throws SQLException{
 		try {
 			con=DBUtil.getCon();

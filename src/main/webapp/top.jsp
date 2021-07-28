@@ -22,6 +22,7 @@
 </head>
 <body>
 
+
 <%	//컨텍츠명
 	String myctx = request.getContextPath();
 
@@ -32,7 +33,7 @@
 %>
 
 <!-- navbar---------------------------------------------  -->
-<nav class="navbar navbar-expand-sm bg-white navbar-white">
+<nav class="navbar navbar-expand-sm bg-white navbar-white" id="top">
 
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
@@ -85,7 +86,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="#">회원목록</a>
+      <a class="nav-link" href="<%=myctx%>/member/list.jsp">회원목록</a>
     </li>
     
     <li class="nav-item">

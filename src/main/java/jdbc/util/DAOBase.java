@@ -1,4 +1,5 @@
 package jdbc.util;
+
 import java.sql.*;
 
 public class DAOBase {
@@ -16,6 +17,7 @@ public class DAOBase {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-	}
+	}	
+	
 
 }
