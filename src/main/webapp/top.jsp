@@ -82,7 +82,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="#">계정관리</a>
+      <a class="nav-link" href="<%=myctx%>/member/myInfo.jsp">내 정보</a>
     </li>
     
     <li class="nav-item">

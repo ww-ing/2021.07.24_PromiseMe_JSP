@@ -22,6 +22,7 @@ if(exception instanceof user.persistence.NotUserException){
 <div class="container"> 
 	<div class="alert alert-dange">
 		<h3>서버 에러 발생 <%=exception.getMessage()%></h3>
+		<%exception.printStackTrace(); %>
 	</div>
 
 </div>

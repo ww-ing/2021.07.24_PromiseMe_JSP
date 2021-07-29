@@ -6,7 +6,7 @@ import java.util.*;
 import jdbc.util.*;
 import user.domain.*;
 
-public class UserDAO{
+public class UserDAO {
 	
 	protected Connection con;
 	protected PreparedStatement ps;
