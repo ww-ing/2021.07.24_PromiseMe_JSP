@@ -47,7 +47,7 @@
 	/*페이지 수 정하기  */
 	int totalCount = userDao.getTotalUser();
 
-	int pageSize = 10;//한 페이지 당 보여줄 목록 개수를 10개로 정하자
+	int pageSize = 5;//한 페이지 당 보여줄 목록 개수를 10개로 정하자
 	
 	int pageCount = 0;
 	/*
@@ -145,7 +145,7 @@ if(userList.size()==0){
 		
 		<!-- Prev  -->
 		<li class="page-item">
-		<a class="page-link" href="list.jsp?cpage=<%=cpage-1%>">Prev</a>
+		<a class="page-link" href="list.jsp?cpage=<%=cpage-1%>">이전</a>
 		</li>
 			<%
 			
@@ -161,7 +161,7 @@ if(userList.size()==0){
 			%>
 		<!-- Next -->
 		<li class="page-item">
-		<a class="page-link" href="list.jsp?cpage=<%=cpage+1%>">Next</a>
+		<a class="page-link" href="list.jsp?cpage=<%=cpage+1%>">다음</a>
 		</li>
 		
 		</ul>	

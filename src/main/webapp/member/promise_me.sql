@@ -26,4 +26,4 @@ create or replace view member_view
 as
 select * from member where mstate>-1;
 
-select * from member;
+select * from member order by idx asc;

@@ -107,4 +107,4 @@
 <!--  container content------------------------------------- -->
 <div class="container mt-5" style="height:700px;">
 	<div class="row">
-		<div class="col-md-8 ">
+		<!-- <div class="col-md-8 "> -->

@@ -51,7 +51,7 @@
 </script>
 
 
-<div class="container offset-md-3">
+<div class="container">
 	<h1 class="text-center text-primary m-4">회원가입</h1>
 	<form name="f" action="joinEnd.jsp" method="post">
 		<table class="table">
