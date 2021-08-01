@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1><a href="main.jsp">시작하기</a></h1>
+	<h1><a href="main.me">시작하기</a></h1>
 </body>
 </html>

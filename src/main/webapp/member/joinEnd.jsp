@@ -10,7 +10,7 @@
 <%
 	//유효성체크
 	if(user.getName()==null || user.getUserid()==null){
-		response.sendRedirect("join.jsp");
+		response.sendRedirect("join.me");
 		return;
 	}
 %>
@@ -45,7 +45,7 @@
 
 
 	String msg=(n>0)?"회원가입 성공! 로그인 페이지로 이동합니다":"회원가입 실패";
-	String loc=(n>0)?"../login/login.jsp":"javascript:history.back()";
+	String loc=(n>0)?"login.me":"javascript:history.back()";
 %>
 <script>
 	alert('<%=msg%>');

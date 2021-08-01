@@ -57,11 +57,11 @@
     }else{
 %>	    	
 	<li class="nav-item">
-      <a class="nav-link" href="<%=myctx%>/login/login.jsp"><h3>로그인</h3></a>
+      <a class="nav-link" href="login.me"><h3>로그인</h3></a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="<%=myctx%>/member/join.jsp"><h3>회원가입</h3></a>
+      <a class="nav-link" href="join.me"><h3>회원가입</h3></a>
     </li>    
 <%    	
     }
@@ -73,7 +73,7 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="<%=myctx%>/main.jsp">약속해줘</a>
+  <a class="navbar-brand" href="main.me">약속해줘</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
@@ -82,11 +82,11 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="<%=myctx%>/member/myInfo.jsp">내 정보</a>
+      <a class="nav-link" href="myInfo.me">내 정보</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="<%=myctx%>/member/list.jsp">회원목록</a>
+      <a class="nav-link" href="list.me">회원목록</a>
     </li>
     
     <li class="nav-item">

@@ -55,7 +55,7 @@
 		
 		
 		
-		response.sendRedirect("../main.jsp");
+		response.sendRedirect("main.me");
 		
 		/*회원인증을 받았다면 인증받은 회원정보를 session에 저장하자.
 		session 내장객체 : HttpSession 타입

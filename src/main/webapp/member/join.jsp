@@ -7,7 +7,7 @@
 	let win=null;
 	
 	let openWin=function(){
-		win=window.open("idCheck.jsp","idCheck",
+		win=window.open("member/idCheck.jsp","idCheck",
 				"width=400, height=400, left=100, top=100");
 	}
 
@@ -53,7 +53,7 @@
 
 <div class="container">
 	<h1 class="text-center text-primary m-4">회원가입</h1>
-	<form name="f" action="joinEnd.jsp" method="post">
+	<form name="f" action="joinEnd.me" method="post">
 		<table class="table">
 			<tr>
 				<td width="20%">

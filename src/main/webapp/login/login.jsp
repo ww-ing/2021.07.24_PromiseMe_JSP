@@ -67,10 +67,10 @@
 	
 	%>
 
-    <h1 class="text-center m-4 text-secondary"><a href="<%=myctx %>/main.jsp">약속해줘</a></h1>
+    <h1 class="text-center m-4 text-secondary"><a href="main.me">약속해줘</a></h1>
     <div class="row">
     	<div class="col-md-4 offset-md-4">
-    		<form name="loginF" action="loginEnd.jsp" method="post"
+    		<form name="loginF" action="loginEnd.me" method="post"
     		onsubmit="return loginCheck()">
     			<table class="table table-bordered">
     				
