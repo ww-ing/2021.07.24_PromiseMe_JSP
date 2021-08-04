@@ -8,7 +8,8 @@ import common.controller.AbstractAction;
 public class MyInfoAction extends AbstractAction {
 
 	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	public void execute(HttpServletRequest req, HttpServletResponse res) 
+	throws Exception {
 		System.out.println("MyInfoAction의 execute()");
 		
 		this.setViewPage("member/myInfo.jsp");

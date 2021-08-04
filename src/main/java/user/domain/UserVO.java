@@ -20,7 +20,7 @@ public class UserVO implements java.io.Serializable{
 	private int mstate;//회원상태(일반회원:0,정지회원1,탈퇴회원:-1);
 
 	public UserVO() {
-		System.out.println("UserVO()�⺻ ������...");
+		System.out.println("UserVO()호출됨...");
 	}
 
 	public UserVO(int idx, String name, String userid,

@@ -145,7 +145,7 @@ if(userList.size()==0){
 		
 		<!-- Prev  -->
 		<li class="page-item">
-		<a class="page-link" href="list.jsp?cpage=<%=cpage-1%>">이전</a>
+		<a class="page-link" href="list.me?cpage=<%=cpage-1%>">이전</a>
 		</li>
 			<%
 			
@@ -153,7 +153,7 @@ if(userList.size()==0){
 				String str = (cpage==i)?"active":"";
 			%>
 			<li class="page-item <%=str%>">
-			<a class="page-link" href="list.jsp?cpage=<%=i%>"><%=i%></a>
+			<a class="page-link" href="list.me?cpage=<%=i%>"><%=i%></a>
 			</li>
 			<%-- [<a href="list.jsp?cpage=<%=i%>"> <%=i%> </a>] --%>
 			<%
@@ -161,7 +161,7 @@ if(userList.size()==0){
 			%>
 		<!-- Next -->
 		<li class="page-item">
-		<a class="page-link" href="list.jsp?cpage=<%=cpage+1%>">다음</a>
+		<a class="page-link" href="list.me?cpage=<%=cpage+1%>">다음</a>
 		</li>
 		
 		</ul>	

@@ -9,7 +9,7 @@
 		%>
 		<script>
 			alert('로그인해야 이용할 수 있어요');
-			location.href = "<%=request.getContextPath()%>/login/login.jsp";
+			location.href = "login.me";
 		</script>
 		<%
 		return;
@@ -20,7 +20,7 @@
 		%>
 		<script>
 			alert('정지 회원입니다. 일반회원으로 전환해야 이용 가능합니다.\\n회원정보를 수정한 뒤 다시 로그인 하세요')
-			location.href = "<%=request.getContextPath()%>/member/edit.jsp?idx=<%=member.getIdx()%>&mode=<%=member.getMstate()%>";
+			location.href = "myInfo.me?idx=<%=member.getIdx()%>&mode=<%=member.getMstate()%>";
 		</script>
 		<%
 		return;

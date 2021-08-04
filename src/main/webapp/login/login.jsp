@@ -21,12 +21,6 @@
 </head>
 <body>    
 
-
-<%	//컨텍츠명
-	String myctx = request.getContextPath();
-%>
-
-
 	<script>
 		function loginCheck(){
 			
@@ -62,8 +56,6 @@
 				
 			}
 		}
-	
-	
 	
 	%>
 
