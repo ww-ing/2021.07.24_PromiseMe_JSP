@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1><a href="main.me">시작하기</a></h1>
-	<h2>${msg} : ${count}</h2>
-	<h2>userTest ${user}</h2>
+	<h1>YaksokSetForm.jsp</h1>
+	<h1>key=${key}</h1>
 </body>
 </html>

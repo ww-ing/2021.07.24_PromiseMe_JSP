@@ -24,6 +24,33 @@ NOCYCLE;
 
 create or replace view member_view
 as
-select * from member where mstate>-1;
+select * from member where idx>-1;
 
 select * from member order by idx asc;
+
+select count(*) from tab;
+
+select * from member;
+
+create table yaksok(
+    idx number(8) constraint yaksok_pk primary key,
+    userid varchar2(30) not null,
+    yaksokname varchar2(100) not null,
+    unchecked number(20)
+);
+
+
+CREATE SEQUENCE yaksok_seq
+INCREMENT BY 1
+START WITH 1
+MINVALUE 1 
+MAXVALUE 100
+NOCYCLE;
+
+insert into yaksok(idx,userid,yaksokname,unchecked)
+values (yaksok_seq.nextval, 'admin', 'TIS상담예약', 7);
+
+insert into yaksok(idx,userid,yaksokname,unchecked)
+values (yaksok_seq.nextval, 'test', 'TIS스터디모임', 3);
+
+select count(*) cnt from tab;

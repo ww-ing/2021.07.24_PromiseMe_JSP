@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="yaksok.mapper.YaksokMapper">
+
+	<!-- 샘플 테스트 -->
+	<select id="totalCount" resultType="int">
+		select count(*) cnt from tab
+	</select>
+	
+	<!-- yaksok_column -->
+	<sql id="yaksok_column">
+		idx, userid, yaksokname, indate, key
+	</sql>
+
+	<!-- selectAllYaksok -->
+	<select id="selectAllYaksok" resultType="yaksok.model.YaksokVO"
+	parameterType="string">
+		select 
+		<include refid="yaksok_column"/>
+		from yaksok where userid=#{value} 
+	</select>
+	
+	<!-- insertYaksok -->
+	<insert id="insertYaksok" parameterType="yaksok.model.YaksokVO">
+		insert into yaksok 
+		(<include refid="yaksok_column"/>)
+		values(yaksok_seq.nextval, #{userid}, #{yaksokname}, sysdate, #{userid}||yaksok_seq.nextval)
+	</insert>
+	
+</mapper>

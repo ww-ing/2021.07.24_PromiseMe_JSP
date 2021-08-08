@@ -78,7 +78,7 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">예약하기</a>
+      <a class="nav-link" href="yaksok.me">약속관리</a>
     </li>
     
     <li class="nav-item">
@@ -90,7 +90,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="#">팀원모집</a>
+      <a class="nav-link" href="#">가이드 센터</a>
     </li>    
     
     <li class="nav-item">
