@@ -19,8 +19,6 @@
 </head>
 <body>
 	<a href="yaksok.me"><h1>약속해줘</h1></a>
-	<h1>${userid}</h1>
-	
 
 	<div class="container">
 	<h1 class="text-center text-primary m-4">약속등록</h1>

@@ -1,11 +1,11 @@
 package yaksok.controller;
 
-import javax.servlet.http.Cookie;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import common.controller.AbstractAction;
+import user.domain.UserVO;
 import yaksok.model.YaksokDAOMyBatis;
 import yaksok.model.YaksokVO;
 
@@ -16,24 +16,15 @@ public class YaksokAddAction extends AbstractAction {
 	throws Exception {
 		req.setCharacterEncoding("UTF-8");
 		
-		//쿠키 꺼내오기
-		Cookie[] cks = req.getCookies();
-		System.out.println("cks="+cks);
-		String userid = "";
-		if(cks!=null){
-			for(Cookie ck : cks){
-				String key = ck.getName();//쿠키의 키값을 반환
-				if(key.equals("uid")){
-					userid=ck.getValue();//사용자 아이디
-					break;
-				}
-				
-			}
-		}
+		//세션에서 꺼내오기
+		HttpSession session=req.getSession();
+		UserVO user=(UserVO) session.getAttribute("loginUser");
+		int useridx=user.getIdx();
+		String idx=Integer.toString(useridx);
 		
 		String yaksokname=req.getParameter("yaksokname");
 		
-		YaksokVO item=new YaksokVO(null, userid, yaksokname, null, null);
+		YaksokVO item=new YaksokVO(null, yaksokname, null, idx);
 		
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
 		

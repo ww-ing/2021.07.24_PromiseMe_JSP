@@ -20,11 +20,11 @@
 
 <c:forEach var="yaksok" items="${yaksokList}">
 <tr>
-   <th>${yaksok.idx}</th>
+   <th>${yaksok.yidx}</th>
    <th>${yaksok.yaksokname}</th>
    <th>${yaksok.indate}</th>
    <th class="text text-danger">0</th>
-   <td><button><a href="yaksokSet.me?key=${yaksok.key}">관리</a></button></td>
+   <td><button><a href="yaksokSet.me?yidx=${yaksok.yidx}">관리</a></button></td>
 </tr>
 </c:forEach>
 </table>

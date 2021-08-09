@@ -45,7 +45,6 @@ public class YaksokDAOMyBatis {
 		try {
 			ses=this.getSessionFactory().openSession();
 			List<YaksokVO> arr=ses.selectList(NS+".selectAllYaksok",userid);
-			System.out.println("arr="+arr);
 			return arr;
 			
 		} finally {
@@ -73,6 +72,18 @@ public class YaksokDAOMyBatis {
 			close();
 		}
 		
+	}
+	
+	/**약속 정보*/
+	public YaksokInfoVO selectYaksokInfo(String yidx) {
+		try {
+			ses=this.getSessionFactory().openSession();
+			YaksokInfoVO arr=ses.selectOne(NS+".selectYaksokInfo",yidx);
+			return arr;
+			
+		} finally {
+			close();
+		}
 	}
 	
 	private void close() {

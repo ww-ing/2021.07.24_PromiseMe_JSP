@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.controller.AbstractAction;
+import yaksok.model.YaksokDAOMyBatis;
+import yaksok.model.YaksokInfoVO;
 
 public class YaksokSetFormAction extends AbstractAction {
 
@@ -12,9 +14,14 @@ public class YaksokSetFormAction extends AbstractAction {
 	throws Exception {
 		req.setCharacterEncoding("UTF-8");
 		
-		String key=req.getParameter("key");
+		String yidx=req.getParameter("yidx");
+		req.setAttribute("yidx", yidx);
 		
-		req.setAttribute("key", key);
+		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
+		YaksokInfoVO info=dao.selectYaksokInfo(yidx);
+		
+		req.setAttribute("info", info);
+		
 		
 		this.setViewPage("yaksok/yaksokSetForm.jsp");
 		this.setRedirect(false);

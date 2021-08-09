@@ -12,22 +12,45 @@ import java.sql.Date;
 */
 public class YaksokVO implements Serializable {
 	
-	private String idx;
-	private String userid;
-	private String key;
+	private String yidx;
 	private String yaksokname;
 	private Date indate;
+	private String idx;
 	
 	public YaksokVO() {
 		
 	}
 
-	public YaksokVO(String idx, String userid, String yaksokname, Date indate, String key) {
+	public YaksokVO(String yidx, String yaksokname, Date indate, String idx) {
 		super();
-		this.idx = idx;
-		this.userid = userid;
+		this.yidx = yidx;
 		this.yaksokname = yaksokname;
-		this.key = key;
+		this.indate = indate;
+		this.idx = idx;
+	}
+
+	public String getYidx() {
+		return yidx;
+	}
+
+	public void setYidx(String yidx) {
+		this.yidx = yidx;
+	}
+
+	public String getYaksokname() {
+		return yaksokname;
+	}
+
+	public void setYaksokname(String yaksokname) {
+		this.yaksokname = yaksokname;
+	}
+
+	public Date getIndate() {
+		return indate;
+	}
+
+	public void setIndate(Date indate) {
+		this.indate = indate;
 	}
 
 	public String getIdx() {
@@ -38,36 +61,5 @@ public class YaksokVO implements Serializable {
 		this.idx = idx;
 	}
 
-	public String getUserid() {
-		return userid;
-	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-
-	public String getYaksokname() {
-		return yaksokname;
-	}
-
-	public void setYaksokname(String yaksokname) {
-		this.yaksokname = yaksokname;
-	}
-	
-	public Date getIndate() {
-		return indate;
-	}
-
-	public void setYaksokname(Date indate) {
-		this.indate = indate;
-	}
-	
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
-	}
 
 }

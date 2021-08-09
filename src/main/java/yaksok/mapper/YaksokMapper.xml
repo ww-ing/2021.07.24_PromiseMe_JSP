@@ -12,22 +12,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- yaksok_column -->
 	<sql id="yaksok_column">
-		idx, userid, yaksokname, indate, key
+		yidx, yaksokname, indate, idx
 	</sql>
+	
+	<!-- ================================================================================= -->
 
-	<!-- selectAllYaksok -->
+	<!-- 아이디로 모든 약속 부르기 -->
 	<select id="selectAllYaksok" resultType="yaksok.model.YaksokVO"
 	parameterType="string">
 		select 
 		<include refid="yaksok_column"/>
-		from yaksok where userid=#{value} 
+		from yaksok where idx=#{idx} 
 	</select>
 	
-	<!-- insertYaksok -->
+	<!-- 약속 등록 -->
 	<insert id="insertYaksok" parameterType="yaksok.model.YaksokVO">
 		insert into yaksok 
 		(<include refid="yaksok_column"/>)
-		values(yaksok_seq.nextval, #{userid}, #{yaksokname}, sysdate, #{userid}||yaksok_seq.nextval)
+		values(yaksok_seq.nextval, #{yaksokname}, sysdate, #{idx})
 	</insert>
+	
+	<!-- 키 값으로 해당 약속 정보 부르기 -->
+	<select id="selectYaksokInfo" resultType="yaksok.model.YaksokInfoVO"
+	parameterType="string">
+		select * from yaksok_info where yidx=#{value}
+	</select>
 	
 </mapper>

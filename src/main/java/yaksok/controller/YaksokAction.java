@@ -2,11 +2,12 @@ package yaksok.controller;
 
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import common.controller.AbstractAction;
+import user.domain.UserVO;
 import yaksok.model.YaksokDAOMyBatis;
 import yaksok.model.YaksokVO;
 
@@ -16,20 +17,11 @@ public class YaksokAction extends AbstractAction {
 	public void execute(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
 		
-		//쿠키 꺼내오기
-		Cookie[] cks = req.getCookies();
-		System.out.println("cks="+cks);
-		String uid = "";
-		if(cks!=null){
-			for(Cookie ck : cks){
-				String key = ck.getName();//쿠키의 키값을 반환
-				if(key.equals("uid")){
-					uid=ck.getValue();//사용자 아이디
-					break;
-				}
-				
-			}
-		}
+		//세션에서 꺼내오기
+		HttpSession session=req.getSession();
+		UserVO user=(UserVO) session.getAttribute("loginUser");
+		int useridx=user.getIdx();
+		String idx=Integer.toString(useridx);
 
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
 		
@@ -41,7 +33,7 @@ public class YaksokAction extends AbstractAction {
 		req.setAttribute("count", cnt);
 		
 		//selectAllYaksok
-		List<YaksokVO> yaksokList=dao.selectAllYaksok(uid);
+		List<YaksokVO> yaksokList=dao.selectAllYaksok(idx);
 		System.out.println("yaksokList="+yaksokList);
 		
 		req.setAttribute("yaksokList", yaksokList);
