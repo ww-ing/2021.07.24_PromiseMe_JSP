@@ -57,21 +57,30 @@ public class YaksokDAOMyBatis {
 	/**약속 등록*/
 	public int insertYaksok(YaksokVO item) {
 		try {
-			ses=this.getSessionFactory().openSession();
+			ses=this.getSessionFactory().openSession(true);
 			
 			int suc=ses.insert(NS+".insertYaksok", item);
 			
-			if(suc>0) {
-				ses.commit();
-			}else {
-				ses.rollback();
-			}
 			return suc;
 			
 		} finally {
 			close();
 		}
 		
+	}
+	
+	/**약속 데이터 등록*/
+	public int insertYaksokInfo(YaksokInfoVO item) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			
+			int suc=ses.insert(NS+".insertYaksokInfo", item);
+			
+			return suc;
+			
+		} finally {
+			close();
+		}
 	}
 	
 	/**약속 정보*/
