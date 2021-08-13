@@ -55,11 +55,11 @@ public class YaksokDAOMyBatis {
 	}//----------
 	
 	/**약속 등록*/
-	public int insertYaksok(YaksokVO item) {
+	public int insertYaksok(YaksokVO yaksok) {
 		try {
 			ses=this.getSessionFactory().openSession(true);
 			
-			int suc=ses.insert(NS+".insertYaksok", item);
+			int suc=ses.insert(NS+".insertYaksok", yaksok);
 			
 			return suc;
 			
@@ -70,25 +70,37 @@ public class YaksokDAOMyBatis {
 	}
 	
 	/**약속 데이터 등록*/
-	public int insertYaksokInfo(YaksokInfoVO item) {
+	public int insertYaksokInfo(YaksokInfoVO yaksokInfo) {
 		try {
 			ses=this.getSessionFactory().openSession(true);
 			
-			int suc=ses.insert(NS+".insertYaksokInfo", item);
+			int suc=ses.insert(NS+".insertYaksokInfo", yaksokInfo);
 			
 			return suc;
 			
 		} finally {
 			close();
 		}
-	}
+	}//-----------
 	
-	/**약속 정보*/
+	/**약속 정보 선택*/
 	public YaksokInfoVO selectYaksokInfo(String yidx) {
 		try {
 			ses=this.getSessionFactory().openSession();
 			YaksokInfoVO arr=ses.selectOne(NS+".selectYaksokInfo",yidx);
 			return arr;
+			
+		} finally {
+			close();
+		}
+	}//-----------
+	
+	/**약속 정보 수정*/
+	public int updateYaksokInfo(YaksokInfoVO yaksokInfo) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.update(NS+".updateYaksokInfo",yaksokInfo);
+			return n;
 			
 		} finally {
 			close();
@@ -101,9 +113,3 @@ public class YaksokDAOMyBatis {
 	}//----------
 
 }
-
-
-
-
-
-

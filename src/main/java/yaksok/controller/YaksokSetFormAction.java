@@ -15,7 +15,6 @@ public class YaksokSetFormAction extends AbstractAction {
 		req.setCharacterEncoding("UTF-8");
 		
 		String yidx=req.getParameter("yidx");
-		req.setAttribute("yidx", yidx);
 		
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
 		YaksokInfoVO info=dao.selectYaksokInfo(yidx);

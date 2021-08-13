@@ -15,7 +15,7 @@
    <th>약속명</th>
    <th>등록일</th>
    <th>미확인</th>
-   <th>관리</th>
+   <th>&nbsp&nbsp관리&nbsp&nbsp/&nbsp&nbsp통계</th>
 </tr>
 
 <c:forEach var="yaksok" items="${yaksokList}">
@@ -24,7 +24,13 @@
    <th>${yaksok.yaksokname}</th>
    <th>${yaksok.indate}</th>
    <th class="text text-danger">0</th>
-   <td><button><a href="yaksokSet.me?yidx=${yaksok.yidx}">관리</a></button></td>
+   
+   <td>   
+    <form class="form-inline" action="yaksokSetForm.me" method="post">
+   		<input type="hidden" name="yidx" value="${yaksok.yidx}">
+		<button>관리</button>
+	</form>
+   </td>
 </tr>
 </c:forEach>
 </table>

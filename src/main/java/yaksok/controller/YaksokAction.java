@@ -34,7 +34,6 @@ public class YaksokAction extends AbstractAction {
 		
 		//selectAllYaksok
 		List<YaksokVO> yaksokList=dao.selectAllYaksok(idx);
-		System.out.println("yaksokList="+yaksokList);
 		
 		req.setAttribute("yaksokList", yaksokList);
 		

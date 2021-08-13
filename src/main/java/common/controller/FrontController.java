@@ -79,6 +79,7 @@ public class FrontController extends HttpServlet {
 	
 	private void process(HttpServletRequest request, HttpServletResponse response) 
 	throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		//1. 클라이언트의 요청 URI를 분석해서 해당 요청을 처리함 SubController(XXXAction) 를 생성하고
 		//	execute()를 호출한다.
 		/*
