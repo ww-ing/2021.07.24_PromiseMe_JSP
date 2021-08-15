@@ -4,7 +4,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="member.mapper.UserMapper">
-	<select id="selectUser" resultType="user.domain.UserVO">
-		select * from member where idx=42
-	</select>
 </mapper>

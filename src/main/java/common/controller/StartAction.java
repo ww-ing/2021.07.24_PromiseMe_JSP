@@ -11,18 +11,9 @@ public class StartAction extends AbstractAction {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
-
-		
-		//User테스트
-		UserDAOMybatis userDao=new UserDAOMybatis();;
-		
-		UserVO user=userDao.selectUser("1");
-		
-		req.setAttribute("user", user);
-		
 		
 		this.setViewPage("start.jsp");
-		this.setRedirect(false);//forward방식으로 이동
+		this.setRedirect(false);
 
 	}
 

@@ -8,7 +8,5 @@
 </head>
 <body>
 	<h1><a href="main.me">시작하기</a></h1>
-	<h2>${msg} : ${count}</h2>
-	<h2>userTest ${user}</h2>
 </body>
 </html>

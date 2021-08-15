@@ -9,7 +9,8 @@ import common.controller.AbstractAction;
 public class LogoutAction extends AbstractAction {
 
 	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	public void execute(HttpServletRequest req, HttpServletResponse res) 
+	throws Exception {
 		
 		HttpSession session = req.getSession();
 		session.invalidate();

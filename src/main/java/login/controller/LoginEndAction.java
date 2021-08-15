@@ -14,7 +14,8 @@ public class LoginEndAction extends AbstractAction {
 	
 
 	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	public void execute(HttpServletRequest req, HttpServletResponse res) 
+	throws Exception {
 		
 		String id = req.getParameter("userid");
 		String pwd = req.getParameter("pwd");

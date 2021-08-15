@@ -14,7 +14,7 @@ public class YaksokDAOMyBatis {
 	private final String NS="yaksok.mapper.YaksokMapper";
 	
 	public SqlSessionFactory getSessionFactory() {
-		//설계도
+		
 		String resource="common/config/mybatis-config.xml";
 		InputStream is=null;
 		try {
@@ -24,7 +24,7 @@ public class YaksokDAOMyBatis {
 			e.printStackTrace();
 			return null;
 		}
-		//공장 만들어주기
+		
 		SqlSessionFactory factory=new SqlSessionFactoryBuilder().build(is);
 		return factory;
 		
@@ -34,7 +34,6 @@ public class YaksokDAOMyBatis {
 	public int getTableCount() {
 		ses=this.getSessionFactory().openSession();
 		
-		//select문 수행할 때 수행되는 메소드
 		int count=ses.selectOne(NS+".totalCount");
 		if(ses!=null) ses.close();
 		return count;
