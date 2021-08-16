@@ -37,8 +37,8 @@ public class YaksokAction extends AbstractAction {
 		
 		req.setAttribute("yaksokList", yaksokList);
 		
-		this.setViewPage("yaksok/yaksok.jsp");
 		this.setRedirect(false);
+		this.setViewPage("yaksok/yaksok.jsp");
 		
 	}
 

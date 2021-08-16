@@ -27,8 +27,6 @@ public class JoinEndAction extends AbstractAction {
 		UserVO user = new UserVO(0,name,userid,pwd,hp1,hp2,hp3,zipcode,addr1,addr2,null,0,1);
 		if(user.getName()==null || user.getUserid()==null){
 			
-			CommonUtil.addMsgBack(req, "잘못된 경로입니다.");
-			
 			this.setRedirect(false);
 			this.setViewPage("join.me");	
 			return;

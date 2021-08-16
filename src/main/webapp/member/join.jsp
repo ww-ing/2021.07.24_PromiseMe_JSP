@@ -161,5 +161,5 @@
 		</table>
 	</form>
 </div>
-
-<jsp:include page="/foot.jsp" />
+</body>
+</html>
