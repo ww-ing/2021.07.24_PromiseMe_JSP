@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, user.domain.*" %>
 <!--관리자 여부 체크 모듈 include-----------  -->
-<%@ include file="/login/adminCheckModule.jsp" %>
+<%@ include file="/login/adminCheckModule.jsp" %><
 <!-------------------------------------  -->
+
 
 <jsp:include page="/top.jsp" />
 <%

@@ -8,9 +8,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import user.domain.UserVO;
+import jdbc.util.DBUtil;
 
-public class UserDAOMybatis {
+
+public class UserDAOMyBatis {
 	
 	private SqlSession ses;
 	private final String NS="member.mapper.UserMapper";
@@ -31,22 +32,58 @@ public class UserDAOMybatis {
 		return factory;
 		
 	}//----------
+	/**회원 등록*/
+	public int insertUser(UserVO user) throws SQLException{
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.insert(NS+".insertUser",user);
+			return n;
+		} finally {
+			close();
+		}
+	}
 	
-	/**회원 선택*/
-	public UserVO selectUser(String idx) throws SQLException{
+	/**아이디로 회원 정보 검색*/
+	public UserVO selectUserById(String userid) {
 		try {
 			ses=this.getSessionFactory().openSession();
-			UserVO arr=ses.selectOne(NS+".selectUser",idx);
-			return arr;
+			UserVO user=ses.selectOne(NS+".selectUserById",userid);
+			return user;
+		} finally {
+			close();
+		}
+		
+	}
+	
+	/**idx로 회원 정보 검색*/
+	public UserVO selectUser(String idx) throws SQLException{
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			UserVO user=ses.selectOne(NS+".selectUser",idx);
+			return user;
 		} finally {
 			close();
 		}
 		
 	}//----------
 	
+	/**회원 정보 수정*/
+	public int updateMyInfo(UserVO user) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.update(NS+".updateMyInfo",user);
+			return n;
+		} finally {
+			close();
+		}
+		
+	}
+	
+	/**닫아주기*/
 	private void close() {
 		if(ses!=null) ses.close();
 		
 	}//----------
+	
 
 }

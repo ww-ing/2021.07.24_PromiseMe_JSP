@@ -33,9 +33,7 @@ public class FrontController extends HttpServlet {
 	
 	@Override
 	public void init(ServletConfig conf) throws ServletException {
-		System.out.println("FrontController의 init()호출됨...");
 		String prpos = conf.getInitParameter("config");
-		System.out.println("FrontController의 props=" + prpos);
 		
 		Properties pr = new Properties();
 		
@@ -91,36 +89,29 @@ public class FrontController extends HttpServlet {
 		System.out.println("cmd2=="+cmd);
 		*/
 		String cmd=request.getServletPath();
-		System.out.println("FrontController의 cmd=="+cmd);
 		
 		//----------------------------------------------------------
 		Object instance =cmdMap.get(cmd);
 		if(instance==null) {
-			System.out.println("FrontController의 Action이 null");
+			System.out.println("FrontController의 Action이 null입니다");
 			throw new ServletException("FrontController의 Action이 null입니다");
 		}
-		System.out.println("FrontController의 instance=="+instance);
 		
 		AbstractAction action=(AbstractAction)instance;
 		//----------------------------------------------------------
 		
 		try {
 		action.execute(request, response);
-		System.out.println("FrontController의 excute()호출됨...");
 		
 		String viewPage=action.getViewPage();
 		boolean isRedirect=action.isRedirect();
 		
 		if(isRedirect) {
 			//redirect방식으로 이동
-			System.out.println("FrontController의 isRedirect는 :"+isRedirect);
-			System.out.println("FrontController의 viewPage redirect방식="+viewPage);
 			response.sendRedirect(viewPage);
 			
 		}else {
 			//forward방식으로 이동
-			System.out.println("FrontController의 isRedirect는 :"+isRedirect);
-			System.out.println("FrontController의 viewPage forward방식="+viewPage);
 			RequestDispatcher disp=request.getRequestDispatcher(viewPage);
 			disp.forward(request, response);
 			//서버 내부에서 이동, 이 때 request, response를 가져감

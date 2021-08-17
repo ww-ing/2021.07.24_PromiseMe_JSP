@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.controller.AbstractAction;
-import user.domain.UserVO;
+import member.model.UserVO;
 import yaksok.model.YaksokDAOMyBatis;
 import yaksok.model.YaksokInfoVO;
 import yaksok.model.YaksokVO;
@@ -24,11 +24,11 @@ public class YaksokAddAction extends AbstractAction {
 		
 		//로그인회원의 정보 가져오기
 		UserVO user=(UserVO) session.getAttribute("loginUser");
-		int idx=user.getIdx();
+		String idx=user.getIdx();
 		String yaksokname=req.getParameter("yaksokname");
 		
 		//약속 등록
-		YaksokVO yaksok=new YaksokVO(null,yaksokname,null,Integer.toString(idx));
+		YaksokVO yaksok=new YaksokVO(null,yaksokname,null,idx);
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
 		int yaksoksuc=dao.insertYaksok(yaksok);
 		

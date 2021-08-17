@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.controller.AbstractAction;
-import user.domain.UserVO;
+import member.model.UserVO;
 import yaksok.model.YaksokDAOMyBatis;
 import yaksok.model.YaksokVO;
 
@@ -20,8 +20,7 @@ public class YaksokAction extends AbstractAction {
 		//세션에서 꺼내오기
 		HttpSession session=req.getSession();
 		UserVO user=(UserVO) session.getAttribute("loginUser");
-		int useridx=user.getIdx();
-		String idx=Integer.toString(useridx);
+		String idx=user.getIdx();
 
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
 		

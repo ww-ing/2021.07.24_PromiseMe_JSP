@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.controller.AbstractAction;
-import user.domain.UserVO;
+import member.model.UserVO;
 
 public class YaksokAddFormAction extends AbstractAction {
 
@@ -15,8 +15,7 @@ public class YaksokAddFormAction extends AbstractAction {
 		//세션에서 꺼내오기
 		HttpSession session=req.getSession();
 		UserVO user=(UserVO) session.getAttribute("loginUser");
-		int useridx=user.getIdx();
-		String idx=Integer.toString(useridx);
+		String idx=user.getIdx();
 		
 		req.setAttribute("idx", idx);
 		

@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, user.domain.*" %>
+<%@ page import="java.util.*, member.model." %>
 <!--관리자 여부 체크 모듈 include-----------  -->
-<%@ include file="/login/adminCheckModule.jsp" %>
 <!-------------------------------------  -->
 
 <jsp:include page="/top.jsp" />
@@ -65,6 +64,7 @@
 	}
 	
 	int end = cpage * pageSize;
+	
 	//int start = end - (pageSize -1);
 	int start = end - pageSize +1;
 	
@@ -123,13 +123,12 @@ if(userList.size()==0){
    <%
 } else{
    for(UserVO user: userList){
-      String str=(user.getMstate()==0)? "일반회원":(user.getMstate()==1)? "정지회원": "탈퇴회원";
+	   String str=(user.getMstate()=="0")? "일반회원":(user.getMstate()=="1")? "정지회원": "탈퇴회원";
    %>
    <tr>
       <th><%=user.getIdx() %></th>
-      <th><%=user.getName() %></th>
+      <th><%=user.getUsername() %></th>
       <th><%=user.getUserid() %></th>
-      <th><%=user.getAllHp() %></th>
       <th class="txt<%=user.getMstate() %>"><%=str %></th>
       <td><a href="edit.jsp?idx=<%=user.getIdx()%>">수정</a>
 	  <a href="delete.jsp?idx=<%=user.getIdx()%>">삭제</a></td>
@@ -170,7 +169,6 @@ if(userList.size()==0){
 		<b>총 회원수</b>:<span class="text-primary"><%=totalCount %> 명</span>
 		</td>
 	</tr>
-
 </table>
 
 <jsp:include page="/foot.jsp" />

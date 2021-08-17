@@ -4,15 +4,8 @@
 <jsp:include page="/top.jsp" />
 
 <script>
-	let win=null;
-	
-	let openWin=function(){
-		win=window.open("member/idCheck.jsp","idCheck",
-				"width=400, height=400, left=100, top=100");
-	}
 
-
-	let check=function(){
+	function check(){
 		if(!f.name.value){
 			alert('이름을 입력하세요');
 			f.name.focus();
@@ -50,7 +43,6 @@
 
 </script>
 
-
 <div class="container">
 	<h1 class="text-center text-primary m-4">회원가입</h1>
 	<form name="f" action="joinEnd.me" method="post">
@@ -60,7 +52,7 @@
 				<b>이름</b>
 				</td>
 				<td width="80%">
-				<input type="text" name="name" placeholder="Name"
+				<input type="text" name="username" placeholder="이름"
 				 class="form-control">
 				</td>
 			</tr>
@@ -71,13 +63,9 @@
 				<td width="80%">
 				<div class="row">
 					<div class="col-md-8">
-					<input type="text" name="userid" placeholder="User ID"
-						readonly
-					 class="form-control" >
-					 </div>
-					 <div class="col-md-4">
-					 <button type="button" onclick="openWin()" class="btn btn-primary">아이디 중복 체크</button>
-					 </div>
+						<input type="text" id="userid" name="userid" placeholder="아이디" class="form-control">
+						<div class="check_font" id="id_check"></div>
+					</div>
 				 </div>
 				</td>
 			</tr>
@@ -87,7 +75,7 @@
 				<b>비밀번호</b>
 				</td>
 				<td width="80%">
-				<input type="text" name="pwd" placeholder="Password"
+				<input type="text" id="pwd" name="pwd" placeholder="비밀번호"
 				 class="form-control">
 				</td>
 			</tr>
@@ -97,7 +85,7 @@
 				<b>비밀번호 확인</b>
 				</td>
 				<td width="80%">
-				<input type="text" name="pwd2" placeholder="Re Password"
+				<input type="text" name="pwd2" placeholder="비밀번호 확인"
 				 class="form-control">
 				</td>
 			</tr>
@@ -108,9 +96,12 @@
 				<td width="80%">
 				<div class="row">
 					<div class="col-md-3">
-				<input type="text" name="hp1" maxlength="3"
-				 placeholder="HP1"	 class="form-control">
+				<input type="text" name="hp1" maxlength="11"
+				 placeholder="숫자만 입력"	 class="form-control">
 					</div>
+					<div class="col-md-4">
+					 <button type="button" onclick="numberCheck()" class="btn btn-primary">인증번호 받기</button>
+					 </div>
 					<div class="col-md-3">
 				<input type="text" name="hp2" maxlength="4" 
 				placeholder="HP2"	 class="form-control">
@@ -119,47 +110,22 @@
 				<input type="text" name="hp3"  maxlength="4"
 				 placeholder="HP3"	 class="form-control">
 					</div>
+					
+					
 				 </div>
+				 
 				 <!-- row end -->
 				 
 				</td>
 			</tr>
 			<tr>
-				<td width="20%">
-				<b>우편번호</b>
-				</td>
-				<td width="80%">
-				<div class="row">
-					<div class="col-md-8">
-					<input type="text" name="zipcode" placeholder="Zipcode"
-						maxlength="5"
-					 class="form-control">
-					 </div>
-					 <div class="col-md-4">
-					 <button type="button" class="btn btn-primary">우편번호 확인</button>
-					 </div>				 
-				 </div>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width="20%">
-				<b>주소</b>
-				</td>
-				<td width="80%">
-			<input type="text" name="addr1"
-			 placeholder="Address1" class="form-control mb-1">
-			<input type="text" name="addr2" placeholder="Address2" class="form-control">
-				</td>
-			</tr>
-			<tr>
 				<td colspan="2" class="text-center">
 					<button type="button" onclick="check()" class="btn btn-success">회원가입</button>
-					<button type="reset" class="btn btn-danger">다시쓰기</button>
+					<button type="reset" class="btn btn-danger">삭제하기</button>
 				</td>
 			</tr>
 		</table>
 	</form>
 </div>
-</body>
-</html>
+
+<jsp:include page="/foot.jsp" />

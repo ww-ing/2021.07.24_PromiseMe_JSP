@@ -6,8 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.controller.AbstractAction;
-import user.persistence.UserDAO;
-import user.domain.UserVO;
+import member.model.UserDAOMyBatis;
+import member.model.UserVO;
+
+import common.util.CommonUtil;
 
 public class LoginEndAction extends AbstractAction {
 	
@@ -29,8 +31,23 @@ public class LoginEndAction extends AbstractAction {
 			return;
 		}
 		
-		UserDAO userDao=new UserDAO();
-		UserVO loginUser = userDao.loginCheck(id, pwd);
+		UserDAOMyBatis userDao=new UserDAOMyBatis();
+		UserVO loginUser = userDao.selectUserById(id);
+		
+		if(loginUser==null) {
+			CommonUtil.addMsgBack(req, id+"란 아이디는 존재하지 않아요");
+			this.setRedirect(false);
+			this.setViewPage("msg.jsp");
+			return;
+		}
+		
+		if(!pwd.equals(loginUser.getPwd())){
+			CommonUtil.addMsgBack(req, "패스워드가 일치하지 않습니다.");
+			this.setRedirect(false);
+			this.setViewPage("msg.jsp");
+			return;
+		}
+	
 		
 		if(loginUser!=null){
 			HttpSession session = req.getSession();
@@ -41,6 +58,7 @@ public class LoginEndAction extends AbstractAction {
 			String time = sdf.format(d);
 			session.setAttribute("loginTime", time);
 			
+			//쿠키 등록
 			Cookie ck = new Cookie("uid",loginUser.getUserid());//쿠키 생성
 			if(saveId!=null){//체크했다면
 				//쿠키 속성을 설정

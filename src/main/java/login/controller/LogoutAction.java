@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import common.controller.AbstractAction;
 
+import common.util.CommonUtil;
+
 public class LogoutAction extends AbstractAction {
 
 	@Override
@@ -14,15 +16,12 @@ public class LogoutAction extends AbstractAction {
 		
 		HttpSession session = req.getSession();
 		session.invalidate();
+	
+		CommonUtil.addMsgLoc(req, "로그아웃 완료", "main.me");
 		
-		
-		req.setAttribute("message", "로그아웃 완료");
-		req.setAttribute("loc", "main.me");
-		
-		this.setViewPage("msg.jsp");
 		this.setRedirect(false); 
+		this.setViewPage("msg.jsp");
 		
-
 	}
 
 }

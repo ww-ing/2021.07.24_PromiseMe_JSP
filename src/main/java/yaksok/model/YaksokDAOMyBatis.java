@@ -40,10 +40,10 @@ public class YaksokDAOMyBatis {
 	}//----------
 	
 	/**모든 약속 불러오기*/
-	public List<YaksokVO> selectAllYaksok(String userid) {
+	public List<YaksokVO> selectAllYaksok(String idx) {
 		try {
 			ses=this.getSessionFactory().openSession();
-			List<YaksokVO> arr=ses.selectList(NS+".selectAllYaksok",userid);
+			List<YaksokVO> arr=ses.selectList(NS+".selectAllYaksok",idx);
 			return arr;
 			
 		} finally {

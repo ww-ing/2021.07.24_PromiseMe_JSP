@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="myctx" value="${pageContext.request.contextPath}"/>   
 
@@ -33,28 +32,28 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <c:set var="user" value="${user }" />
-                    <c:if test="${user.userid ne 'admin'}">
-	                    <c:if test="${user eq null}">
-	                        <li class="nav-item"><a class="nav-link" href="login.me">로그인</a></li>
-	                        <li class="nav-item"><a class="nav-link" href="join.me">회원가입</a></li>
+                    <c:if test="${loginUser.userid ne 'admin'}">
+	                    <c:if test="${loginUser eq null}">
+	                        <li class="nav-item"><a class="nav-link" href="${myctx}/login.me">로그인</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="${myctx}/join.me">회원가입</a></li>
 						</c:if>
-						<c:if test="${user ne null}">
-	                        <li class="nav-item"><a class="nav-link" href="yaksok.me">약속관리</a></li>
+						<c:if test="${loginUser ne null}">
+	                        <li class="nav-item"><a class="nav-link" href="${myctx}/yaksok.me">약속관리</a></li>
 	                        <li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
-	                        <li class="nav-item"><a class="nav-link" href="myInfo.me">내정보</a></li>
-	                        <li class="nav-item"><a class="nav-link" href="logout.me">로그아웃</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="${myctx}/myInfo.me">내정보</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="${myctx}/logout.me">로그아웃</a></li>
 						</c:if>      
 					</c:if>  
 					
-					<c:if test="${user.userid eq 'admin'}">
-						<li class="nav-item"><a class="nav-link" href="list.me">회원관리</a></li>
-						<li class="nav-item"><a class="nav-link" href="logout.me">로그아웃</a></li>
-					</c:if> 
+					<c:if test="${loginUser.userid eq 'admin'}">
+						<li class="nav-item"><a class="nav-link" href="${myctx}/list.me">회원관리</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">약속관리</a></li>
+						<li class="nav-item"><a class="nav-link" href="${myctx}/logout.me">로그아웃</a></li>
+					</c:if>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>	
 
         <!-- Services-->
         <section class="page-section" id="services">
@@ -154,9 +153,10 @@
                 </div>
             </div>
         </div>
-        <!-- Footer-->
+        
+		<!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - (주)약속하는 사람들</div></div>
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - (주)약속하는사람들</div></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>

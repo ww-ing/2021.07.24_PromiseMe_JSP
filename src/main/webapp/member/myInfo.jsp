@@ -1,31 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="user.domain.*"%>
-<%@ include file="/login/loginCheckModule.jsp" %>
-    
-    
-<%
-
-	String idx=request.getParameter("idx");
-	String mode=request.getParameter("mode");
-	
-	if(idx==null || idx.trim().isEmpty()){//top.jsp에서 넘어온 경우
-		
-		idx=String.valueOf(member.getIdx());//로그인한 회원의 회원번호를 할당
-		if(idx==null){//그래도 null 일 경우
-			response.sendRedirect("list.jsp");
-			return;
-		}
-	}
-	//일반 회원일 경우
-	if(mode!=null && mode.equals("1")){
-		session.setAttribute("mode", "1");
-	}
-	
-	//회원정보로 회원정보 가져오기
-%>
-<jsp:useBean id="userDao" class="user.persistence.UserDAO" scope="session"/>
-
+    pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <jsp:include page="/top.jsp"/>
+    
+
 
 <script>
 	let win = null;
@@ -39,9 +17,9 @@
 
 	let check = function(){
 		//이름 체크
-		if(!f.name.value){
+		if(!f.username.value){
 			alert('이름을 입력하세요');
-			f.name.focus();
+			f.username.focus();
 			return;
 		}
 		
@@ -77,24 +55,11 @@
 	
 </script>
 
-<%
-	UserVO user=userDao.selectUser(idx);
-	if(user==null){
-		%>
-		<script>
-			alert('존재하지 않는 회원입니다.');
-			history.back();
-		</script>
-		<%
-		return;
-	}
-%>
-
 <div class="container">
-    <h1 class="text-center text-primary m-4">Sigh up</h1>
-	<form name="f" action="editEnd.jsp" method="post">
+    <h1 class="text-center text-primary m-4">내정보</h1>
+	<form name="f" action="myInfoEdit.me" method="post">
 		<!--  ------------------------>
-		<input type="hidden" name="idx" value="<%=idx%>">
+		<input type="hidden" name="idx" value="${user.idx}">
 		<!--  hidden date------------------------>
 		<table class="table">
 		
@@ -103,7 +68,7 @@
 				<b>이름</b>
 				</td>
 				<td width="80%">
-				<input type="text" name="name" value="<%=user.getName() %>" placeholder="Name"
+				<input type="text" name="username" value="${user.username}" placeholder="Name"
 				class="form-control">
 				</td>
 			</tr>
@@ -115,7 +80,7 @@
 				<td width="80%">
 				<div class="row">
 					<div class="col-md-8">
-					<input type="text" name="userid" value="<%=user.getUserid() %>" placeholder="User ID"
+					<input type="text" name="userid" value="${user.userid}" placeholder="User ID"
 					readonly class="form-control">
 					</div>
 					<div class="col-md-4">
@@ -152,15 +117,15 @@
 				<td width="80%">
 				<div class="row">
 					<div class="col-md-3">
-				<input type="text" name="hp1" value="<%=user.getHp1() %>" maxlength="3" 
+				<input type="text" name="hp1" value="${user.hp1}" maxlength="3" 
 				placeholder="HP1" class="form-control">
 					</div>
 					<div class="col-md-3">
-				<input type="text" name="hp2" value="<%=user.getHp2() %>" maxlength="4" 
+				<input type="text" name="hp2" value="${user.hp2}" maxlength="4" 
 				placeholder="HP2" class="form-control">
 					</div>
 					<div class="col-md-3">
-				<input type="text" name="hp3" value="<%=user.getHp3() %>" maxlength="4" 
+				<input type="text" name="hp3" value="${user.hp3}" maxlength="4" 
 				placeholder="HP3" class="form-control">
 					</div>
 				</div>
@@ -170,54 +135,17 @@
 			
 			<tr>
 				<td width="20%">
-				<b>우편번호</b>
-				</td>
-				<td width="80%">
-				<div class="row">
-					<div class="col-md-8">
-					<input type="text" name="zipcode" value="<%=user.getZipcode() %>" placeholder="Zipcode"
-					maxlength="5" 
-					class="form-control">
-					</div>
-					<div class="col-md-4">
-					<button type="button" class="btn btn-primary">우편번호 확인</button>
-					</div>
-				</div>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width="20%">
-				<b>주소</b>
-				</td>
-				<td width="80%">
-				<input type="text" name="addr1" value="<%=user.getAddr1() %>" placeholder="Address1" class="form-control mb-1">
-				<input type="text" name="addr2" value="<%=user.getAddr2() %>" placeholder="Address2" class="form-control">
-				</td>
-			</tr>
-			
-			<tr>
-				<td width="20%">
-				<b>마일리지</b>
-				</td>
-				<td width="80%">
-				<input type="text" name="mileage" readonly value="<%=user.getMileage() %>" placeholder="Name"
-				class="form-control">
-				</td>
-			</tr>
-			
-			<tr>
-				<td width="20%">
 				<b>회원상태</b>
 				</td>
 				<td width="80%">
-				<%
-					String str=(user.getMstate()==0)?"일반회원":(user.getMstate()==1)?"정지회원":"탈퇴회원";
-					out.println("<b>"+str+"</b>");
-				%>
-				<input type="radio" name="mstate" value="0" placeholder="Name" <%=(user.getMstate()==0)?"checked":"" %>>일반회원
-				<input type="radio" name="mstate" value="1" placeholder="Name" <%=(user.getMstate()==1)?"checked":"" %>>정지회원
-				<input type="radio" name="mstate" value="-1" placeholder="Name" <%=(user.getMstate()==-1)?"checked":"" %>>탈퇴회원
+				
+				
+				<input type="radio" name="mstate" value="0" placeholder="Name" ${mstate1}>일반회원
+				
+				<input type="radio" name="mstate" value="1" placeholder="Name" ${mstate2}>정지회원
+				
+				<input type="radio" name="mstate" value="-1" placeholder="Name" ${mstate3}>탈퇴회원
+				
 				</td>
 			</tr>			
 			
@@ -228,8 +156,7 @@
 				</td>
 			</tr>
 		</table>
-
 	</form>
 </div>
-    
-<jsp:include page="/foot.jsp"/>
+
+<jsp:include page="/foot.jsp" />
