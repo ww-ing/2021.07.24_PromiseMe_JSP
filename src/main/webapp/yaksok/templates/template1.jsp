@@ -175,7 +175,7 @@
                             <h2 class="card-title">연락처</h2>
                             <p class="card-text">매장 번호 : ${info.number1_1}-${info.number1_2}-${info.number1_3}<br>
                             					 휴대폰 : ${info.number2_1}-${info.number2_2}-${info.number2_3}</p>
-                        </div>
+                        </div>  
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
