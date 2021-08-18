@@ -12,20 +12,17 @@ public class YaksokSetAction extends AbstractAction {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
-		
 
 		String editNum=req.getParameter("editNum");
 		
-		String readonly="";
+		String edit="";
 		if(editNum.equals("0")) {
-			readonly="readonly";
-			req.setAttribute("readonly", readonly);
+			req.setAttribute("edit", edit);
 		}
 		else if(editNum.equals("1")) {
-			readonly="";
-			req.setAttribute("readonly", readonly);
+			edit="edit";
+			req.setAttribute("edit", edit);
 		}
-		
 		String yidx=req.getParameter("yidx");
 				
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();

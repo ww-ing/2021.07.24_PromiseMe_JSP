@@ -12,7 +12,6 @@ public class YaksokSetFormAction extends AbstractAction {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
-		req.setCharacterEncoding("UTF-8");
 		
 		String yidx=req.getParameter("yidx");
 		
@@ -20,7 +19,6 @@ public class YaksokSetFormAction extends AbstractAction {
 		YaksokInfoVO info=dao.selectYaksokInfo(yidx);
 		
 		req.setAttribute("info", info);
-		
 		
 		this.setViewPage("yaksok/yaksokSetForm.jsp");
 		this.setRedirect(false);
