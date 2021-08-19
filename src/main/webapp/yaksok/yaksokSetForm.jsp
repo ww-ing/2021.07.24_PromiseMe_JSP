@@ -71,9 +71,6 @@
     }
 
 </script>
-
-</head>
-<body>
 		<div class="text-center bg-dark">
 			<button type="button" onclick="showTemplate('1','0')">템플릿1</button>
 			<button type="button" onclick="showTemplate('2','0')">템플릿2</button>

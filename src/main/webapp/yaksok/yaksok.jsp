@@ -5,8 +5,10 @@
 <jsp:include page="/top.jsp" />
 
 	<h1 class="text-center">약속관리</h1>
-	 <div class="col-12 m-3"> <button class="float-right">
-	 <a href="yaksokAddForm.me">NEW</a></button></div>
+	 <div class="col-12 m-3"> 
+	 <button class="text-right">
+	 <a href="yaksokAddForm.me">NEW</a>
+	 </button></div>
 	 
 	<table class="table table-striped">
 		<tr>
@@ -14,7 +16,7 @@
 		   <th>약속명</th>
 		   <th>등록일</th>
 		   <th>미확인</th>
-		   <th>&nbsp&nbsp관리&nbsp&nbsp/&nbsp&nbsp통계</th>
+		   <th>관리</th>
 		</tr>
 		
 		<c:forEach var="yaksok" items="${yaksokList}">
