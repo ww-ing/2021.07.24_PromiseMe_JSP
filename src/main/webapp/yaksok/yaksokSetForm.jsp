@@ -11,22 +11,35 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>약속해줘</title>
-<!--         Favicon
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        Bootstrap Icons
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        Google fonts
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        SimpleLightbox plugin CSS
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        Popper JS
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
-		
         <!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+		<script>
+			$(function(){
+				showTemplate(${info.templates},'0');
+			})
+			
+			function showTemplate(templates,editNum){
+				$.ajax({
+					type:'get',
+					url:'yaksokSet.me?yidx='+${info.yidx}+'&&templates='+templates+'&&editNum='+editNum,
+					cache:false,
+					dataType:'html'
+					
+				}).done(function(res){
+					$('#template').html(res);
+				})
+				.fail(function(err){
+					alert('error: '+err.status);
+				})
+			}
+			
+		    function submit() {
+		        document.forms["info"].submit();
+		    }
+		
+		</script>        
     </head>
     <body>
         <!-- Navigation-->
@@ -46,31 +59,6 @@
             </div>
         </nav>	 
 
-<script>
-	$(function(){
-		showTemplate(${info.templates},'0');
-	})
-	
-	function showTemplate(templates,editNum){
-		$.ajax({
-			type:'get',
-			url:'yaksokSet.me?yidx='+${info.yidx}+'&&templates='+templates+'&&editNum='+editNum,
-			cache:false,
-			dataType:'html'
-			
-		}).done(function(res){
-			$('#template').html(res);
-		})
-		.fail(function(err){
-			alert('error: '+err.status);
-		})
-	}
-	
-    function submit() {
-        document.forms["info"].submit();
-    }
-
-</script>
 		<div class="text-center bg-dark">
 			<button type="button" onclick="showTemplate('1','0')">템플릿1</button>
 			<button type="button" onclick="showTemplate('2','0')">템플릿2</button>
@@ -81,17 +69,5 @@
 		
 	<div id="template" class="pt-3"></div>
 	
-		<!-- <!-- Footer
-        <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - (주)약속하는사람들</div></div>
-        </footer>
-        Bootstrap core JS
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        SimpleLightbox plugin JS
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        Core theme JS
-        <script src="js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
     </body>
 </html>  
-	

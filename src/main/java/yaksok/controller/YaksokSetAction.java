@@ -33,7 +33,7 @@ public class YaksokSetAction extends AbstractAction {
 		
 		//선택한 탬플릿 번호
 		String templates=req.getParameter("templates");
-		this.setViewPage("yaksok/templates/template"+templates+".jsp");
+		this.setViewPage("yaksok/templates/template"+templates+"/template"+templates+".jsp");
 
 	}
 

@@ -21,7 +21,7 @@
 			<h2 class="logo-right hidden-xs margin-bottom-60">예약</h2>
 			<div class="tm-right-inner-container">
 				<h1 class="templatemo-header">${info.content_main_title}</h1>
-				<img src="yaksok/templates/images/wooden-desk.jpg" alt="Wooden Desk" class="img-thumbnail">
+				<img src="yaksok/templates/template2/images/wooden-desk.jpg" alt="Wooden Desk" class="img-thumbnail">
 				<a class="btn btn-secondary" href="products.html">예약하기</a>
 				<article>
 					<h2>${info.content1_title}</h2>
@@ -67,18 +67,18 @@
 	<!-- Page content-->
 	<form name="info" action="yaksokEdit.me" method="post">
 	<input type="hidden" name="yidx" value="${info.yidx}">
-        <input type="hidden" name="yaksokurl" value="${info.yaksokurl}">
-        <input type="hidden" name="templates" value="2">
-        <input type="hidden" name="number2_1" value="${info.number2_1}">
-        <input type="hidden" name="number2_2" value="${info.number2_2}">
-        <input type="hidden" name="number2_3" value="${info.number2_3}">
-        <input type="hidden" name="content_main" value="${info.content_main}">
-        
-        <input type="hidden" name="image1" value="${info.image1}">
-        <input type="hidden" name="image2" value="${info.image2}">
-        <input type="hidden" name="image3" value="${info.image3}">
-        <input type="hidden" name="image4" value="${info.image4}">
-        <input type="hidden" name="image5" value="${info.image5}">
+    <input type="hidden" name="yaksokurl" value="${info.yaksokurl}">
+    <input type="hidden" name="templates" value="2">
+    <input type="hidden" name="number2_1" value="${info.number2_1}">
+    <input type="hidden" name="number2_2" value="${info.number2_2}">
+    <input type="hidden" name="number2_3" value="${info.number2_3}">
+    <input type="hidden" name="content_main" value="${info.content_main}">
+    
+    <input type="hidden" name="image1" value="${info.image1}">
+    <input type="hidden" name="image2" value="${info.image2}">
+    <input type="hidden" name="image3" value="${info.image3}">
+    <input type="hidden" name="image4" value="${info.image4}">
+    <input type="hidden" name="image5" value="${info.image5}">
 	
 	<div class="templatemo-container">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg left-container">
@@ -88,7 +88,7 @@
 			<h2 class="logo-right hidden-xs margin-bottom-60">예약</h2>
 			<div class="tm-right-inner-container">
 				<h1 class="templatemo-header"><input type="text" name="content_main_title" value="${info.content_main_title}"></h1>
-				<img src="yaksok/templates/images/wooden-desk.jpg" alt="Wooden Desk" class="img-thumbnail">
+				<img src="yaksok/templates/template2/images/wooden-desk.jpg" alt="Wooden Desk" class="img-thumbnail">
 				<a class="btn btn-secondary" href="products.html">예약하기</a>
 				<article>
 					<h2><input type="text" name="content1_title" value="${info.content1_title}"></h2>
@@ -134,6 +134,5 @@
 	</form>
 	</c:if>
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
-	<link href="yaksok/templates/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="yaksok/templates/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="yaksok/templates/css/templatemo_style.css" rel="stylesheet" type="text/css">
+	<link href="yaksok/templates/template2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="yaksok/templates/template2/css/templatemo_style.css" rel="stylesheet" type="text/css">
