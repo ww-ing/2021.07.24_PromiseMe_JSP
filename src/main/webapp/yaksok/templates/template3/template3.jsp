@@ -37,7 +37,7 @@
                         <h2>${info.content1_title}</h2>
                         <p class="lead">${info.content1}</p>
                         <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p>
-                        <a class="btn btn-primary" href="#!">예약하기</a>
+                        <a class="btn btn-secondary" href="#!">예약하기</a>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                    		value="${info.content1_title}"></h2>
                         <p class="lead"><textarea name="content1">${info.content1}</textarea></p>
                         <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p>
-                        <a class="btn btn-primary" href="#!">예약하기</a>
+                        <a class="btn btn-secondary" href="#!">예약하기</a>
                     </div>
                 </div>
             </div>
@@ -158,11 +158,7 @@
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; (주) 약속하는사람들 2021 </p></div>
         </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="yaksok/templates/template3/js/scripts.js"></script>
-                <!-- Favicon-->
-        <link rel="icon" type="yaksok/templates/template3/image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="yaksok/templates/template3/css/styles.css" rel="stylesheet" />
+    </body>
+</html>          

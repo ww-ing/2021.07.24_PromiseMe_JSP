@@ -30,7 +30,7 @@
                 <div class="col-lg-12">
                     <h1 class="font-weight-light">${info.content_main_title}</h1>
                     <p>${info.content_main}</p>
-                    <a class="btn btn-primary" href="#!">예약하기</a>
+                    <a class="btn btn-secondary" href="#!">예약하기</a>
                 </div>
             </div>
             <!-- Heading Row-->
@@ -68,7 +68,7 @@
                         <div class="card-body">
                             <h3 class="card-title">위치</h3>
                             <p class="card-text">${info.locate}</p>
-                            <a class="btn btn-primary" href="#!">지도보기</a>
+                            <a class="btn btn-secondary" href="#!">지도보기</a>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
         <!-- 수정 페이지------------------------------------ -->
         <c:if test="${edit eq 'edit'}">
         <!-- Page Content-->
-        <form name="info" action="yaksokEdit.me" method="post">
+        <form name="info" action="yaksokEdit.me" method="get">
         <input type="hidden" name="yidx" value="${info.yidx}">
         <input type="hidden" name="yaksokurl" value="${info.yaksokurl}">
         <input type="hidden" name="templates" value="1">
@@ -114,7 +114,7 @@
                     <h1 class="font-weight-light"><input type="text" name="content_main_title" 
                     value="${info.content_main_title}"></h1>
                     <textarea name="content_main">${info.content_main}</textarea>
-                    <a class="btn btn-primary" href="#!">예약하기</a>
+                    <a class="btn btn-secondary" href="#!">예약하기</a>
                 </div>
             </div>
             <!-- Heading Row-->
@@ -155,7 +155,7 @@
                         <div class="card-body">
                             <h4 class="card-title">위치</h4>
                            	<textarea name="locate">${info.locate}</textarea>
-                           	<a class="btn btn-primary" href="#!">지도보기</a>
+                           	<a class="btn btn-secondary" href="#!">지도보기</a>
                         </div>
                     </div>
                 </div>
@@ -193,9 +193,5 @@
         <footer class="py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; (주) 약속하는사람들 2021</p></div>
         </footer>
-         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+    </body>
+</html>        

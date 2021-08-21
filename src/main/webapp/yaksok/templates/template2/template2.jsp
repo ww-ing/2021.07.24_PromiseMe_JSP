@@ -136,3 +136,5 @@
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
 	<link href="yaksok/templates/template2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="yaksok/templates/template2/css/templatemo_style.css" rel="stylesheet" type="text/css">
+    </body>
+</html>	

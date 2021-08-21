@@ -57,9 +57,9 @@ public class YaksokEditAction extends AbstractAction {
 		int n=dao.updateYaksokInfo(info);
 		
 		if(n>0) {
-			req.setAttribute("info", info);
+			req.setAttribute("yidx", yidx);
 			this.setRedirect(false);
-			this.setViewPage("yaksokSetForm.me");
+			this.setViewPage("yaksokMenu.me");
 		}else {
 			this.setRedirect(false);
 			this.setViewPage("javascript:history.back()");
