@@ -159,6 +159,4 @@
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; (주) 약속하는사람들 2021 </p></div>
         </footer>
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="yaksok/templates/template3/css/styles.css" rel="stylesheet" />
-    </body>
-</html>          
+        <link href="yaksok/templates/template3/css/styles.css" rel="stylesheet" />        

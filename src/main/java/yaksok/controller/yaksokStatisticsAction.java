@@ -5,12 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.controller.AbstractAction;
 
-public class yaksokStatisticsAction extends AbstractAction {
+public class YaksokStatisticsAction extends AbstractAction {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
-		
 		this.setRedirect(false);
 		this.setViewPage("yaksok/yaksokStatistics.jsp");
 

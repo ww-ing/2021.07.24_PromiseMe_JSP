@@ -65,6 +65,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		templates=#{templates} where yidx=#{yidx}
 	</update>
 	
+	<!-- 약속 url로 약속 정보 부르기 -->
+	<select id="selectYaksokInfoByURL" parameterType="yaksok.model.YaksokInfoVO"
+	resultType="yaksok.model.YaksokInfoVO">
+		select * from yaksok_info where yaksokurl=#{yaksokurl}
+	</select>
+	
 </mapper>
 
 

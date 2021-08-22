@@ -32,8 +32,12 @@ public class YaksokDAOMyBatis {
 	
 	/**샘플 테스트*/
 	public int getTableCount() {
-		ses=this.getSessionFactory().openSession();
-		
+		try {
+			
+		} finally {
+			close();
+		}
+		ses=this.getSessionFactory().openSession(true);
 		int count=ses.selectOne(NS+".totalCount");
 		if(ses!=null) ses.close();
 		return count;
@@ -42,7 +46,7 @@ public class YaksokDAOMyBatis {
 	/**모든 약속 불러오기*/
 	public List<YaksokVO> selectAllYaksok(String idx) {
 		try {
-			ses=this.getSessionFactory().openSession();
+			ses=this.getSessionFactory().openSession(true);
 			List<YaksokVO> arr=ses.selectList(NS+".selectAllYaksok",idx);
 			return arr;
 			
@@ -57,10 +61,8 @@ public class YaksokDAOMyBatis {
 	public int insertYaksok(YaksokVO yaksok) {
 		try {
 			ses=this.getSessionFactory().openSession(true);
-			
-			int suc=ses.insert(NS+".insertYaksok", yaksok);
-			
-			return suc;
+			int n=ses.insert(NS+".insertYaksok", yaksok);
+			return n;
 			
 		} finally {
 			close();
@@ -72,10 +74,8 @@ public class YaksokDAOMyBatis {
 	public int insertYaksokInfo(YaksokInfoVO yaksokInfo) {
 		try {
 			ses=this.getSessionFactory().openSession(true);
-			
-			int suc=ses.insert(NS+".insertYaksokInfo", yaksokInfo);
-			
-			return suc;
+			int n=ses.insert(NS+".insertYaksokInfo", yaksokInfo);
+			return n;
 			
 		} finally {
 			close();
@@ -85,9 +85,9 @@ public class YaksokDAOMyBatis {
 	/**약속 정보 선택*/
 	public YaksokInfoVO selectYaksokInfo(String yidx) {
 		try {
-			ses=this.getSessionFactory().openSession();
-			YaksokInfoVO arr=ses.selectOne(NS+".selectYaksokInfo",yidx);
-			return arr;
+			ses=this.getSessionFactory().openSession(true);
+			YaksokInfoVO info=ses.selectOne(NS+".selectYaksokInfo",yidx);
+			return info;
 			
 		} finally {
 			close();
@@ -100,6 +100,18 @@ public class YaksokDAOMyBatis {
 			ses=this.getSessionFactory().openSession(true);
 			int n=ses.update(NS+".updateYaksokInfo",yaksokInfo);
 			return n;
+			
+		} finally {
+			close();
+		}
+	}
+	
+	/**약속 url로 약속 정보 부르기*/
+	public YaksokInfoVO selectYaksokInfoByURL(String yaksokurl) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			YaksokInfoVO info=ses.selectOne(NS+".selectYaksokInfoByURL",yaksokurl);
+			return info;
 			
 		} finally {
 			close();
