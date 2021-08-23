@@ -30,7 +30,7 @@
                 <div class="col-lg-12">
                     <h1 class="font-weight-light">${info.content_main_title}</h1>
                     <p>${info.content_main}</p>
-                    <a class="btn btn-secondary" href="#!">예약하기</a>
+                    <a class="btn btn-secondary" href="#">예약하기</a>
                 </div>
             </div>
             <!-- Heading Row-->
@@ -114,7 +114,7 @@
                     <h1 class="font-weight-light"><input type="text" name="content_main_title" 
                     value="${info.content_main_title}"></h1>
                     <textarea name="content_main">${info.content_main}</textarea>
-                    <a class="btn btn-secondary" href="#!">예약하기</a>
+                    <a class="btn btn-secondary" href="#">예약하기</a>
                 </div>
             </div>
             <!-- Heading Row-->

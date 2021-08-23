@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -13,14 +13,17 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="yaksok/css/styles.css" rel="stylesheet" />
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- Core theme JS-->
+        <script src="yaksok/js/scripts.js"></script>		
 	</head>	
 		
 		<body>
-		
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
-                <a class="navbar-brand" href="#">약속해줘 예약</a>
+                <a class="navbar-brand" href="#yaksokBookingModal">약속해줘 예약</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             </div>
         </nav>
@@ -33,7 +36,7 @@
                 <div class="col-lg-12">
                     <h1 class="font-weight-light">${info.content_main_title}</h1>
                     <p>${info.content_main}</p>
-                    <a class="btn btn-secondary" href="#!">예약하기</a>
+                    <a class="btn btn-secondary " href="#yaksokBookingModal" data-toggle="modal">예약하기</a>
                 </div>
             </div>
             <!-- Heading Row-->
@@ -94,14 +97,13 @@
                 </div>
             </div>
         </div>
-        
+       
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; (주) 약속하는사람들 2021</p></div>
-        </footer> 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="yaksok/js/scripts.js"></script>
+        </footer>
+        <!-- yaksokBookingModal.jsp의 소스를 include------------------------ -->
+		<%@ include file="/yaksok/yaksokReserveModal.jsp"%>
+  		<!-- ------------------------------------------------------------- --> 
         </body>  
 </html>        

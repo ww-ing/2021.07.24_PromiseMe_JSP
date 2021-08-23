@@ -22,7 +22,7 @@
 			<div class="tm-right-inner-container">
 				<h1 class="templatemo-header">${info.content_main_title}</h1>
 				<img src="yaksok/templates/template2/images/wooden-desk.jpg" alt="Wooden Desk" class="img-thumbnail">
-				<a class="btn btn-secondary" href="products.html">예약하기</a>
+				<a class="btn btn-secondary" href="#">예약하기</a>
 				<article>
 					<h2>${info.content1_title}</h2>
 					<p>${info.content1}</p>
@@ -55,7 +55,7 @@
             	</div>
 				
 				<footer>
-					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright &copy; (주) 약속하는 사람들 2021</p>
+					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright &copy; (주) 약속하는사람들 2021</p>
 				</footer>
 			</div>
 		</div> <!-- right section -->
@@ -89,7 +89,7 @@
 			<div class="tm-right-inner-container">
 				<h1 class="templatemo-header"><input type="text" name="content_main_title" value="${info.content_main_title}"></h1>
 				<img src="yaksok/templates/template2/images/wooden-desk.jpg" alt="Wooden Desk" class="img-thumbnail">
-				<a class="btn btn-secondary" href="products.html">예약하기</a>
+				<a class="btn btn-secondary" href="#">예약하기</a>
 				<article>
 					<h2><input type="text" name="content1_title" value="${info.content1_title}"></h2>
 					<p><textarea name="content1">${info.content1}</textarea></p>
@@ -126,7 +126,7 @@
             	</div>
 				
 				<footer>
-					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright &copy; (주) 약속하는 사람들 2021</p>
+					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright &copy; (주) 약속하는사람들 2021</p>
 				</footer>
 			</div>
 		</div> <!-- right section -->

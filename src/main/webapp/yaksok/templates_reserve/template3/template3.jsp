@@ -13,10 +13,10 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="yaksok/templates_reserve/template3/css/styles.css" rel="stylesheet" />
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		</head>
 		
 		<body>
-        
         <!-- Header - set the background image for the header in the line below-->
         <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
             <div class="text-center my-5">
@@ -33,7 +33,7 @@
                         <h2>${info.content1_title}</h2>
                         <p class="lead">${info.content1}</p>
                         <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p>
-                        <a class="btn btn-secondary" href="#!">예약하기</a>
+                        <a class="btn btn-secondary " href="#yaksokBookingModal" data-toggle="modal">예약하기</a>
                     </div>
                 </div>
             </div>
@@ -75,6 +75,9 @@
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; (주) 약속하는사람들 2021 </p></div>
-        </footer>  
+        </footer>
+		<!-- yaksokBookingModal.jsp의 소스를 include------------------------ -->
+		<%@ include file="/yaksok/yaksokReserveModal.jsp"%>
+ 		<!-- ------------------------------------------------------------- -->          
 	</body>
 </html>

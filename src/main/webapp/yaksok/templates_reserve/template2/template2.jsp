@@ -7,12 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
         <title>약속해줘</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="yaksok/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="yaksok/css/styles.css" rel="stylesheet" />
-        <script src="https://code.jquery.com/jquery-latest.js"></script> 
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
 		<link href="yaksok/templates_reserve/template2/css/font-awesome.min.css" rel="stylesheet" type="text/css">		
 		<link href="yaksok/templates_reserve/template2/css/templatemo_style.css" rel="stylesheet" type="text/css"> 
@@ -28,7 +30,7 @@
 			<div class="tm-right-inner-container">
 				<h1 class="templatemo-header">${info.content_main_title}</h1>
 				<img src="yaksok/templates_reserve/template2/images/wooden-desk.jpg" alt="Wooden Desk" class="img-thumbnail">
-				<a class="btn btn-secondary" href="products.html">예약하기</a>
+				<a class="btn btn-secondary " href="#yaksokBookingModal" data-toggle="modal">예약하기</a>
 				<article>
 					<h2>${info.content1_title}</h2>
 					<p>${info.content1}</p>
@@ -60,8 +62,11 @@
             	</div>
 				
 				<footer>
-					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright &copy; (주) 약속하는 사람들 2021</p>
+					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright &copy; (주) 약속하는사람들 2021</p>
 				</footer>
+				<!-- yaksokBookingModal.jsp의 소스를 include------------------------ -->
+				<%@ include file="/yaksok/yaksokReserveModal.jsp"%>
+		  		<!-- ------------------------------------------------------------- -->
 			</div>
 		</div>
 	</div>

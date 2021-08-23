@@ -15,7 +15,7 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#!">약속해줘 예약</a>
+                <a class="navbar-brand" href="#">약속해줘 예약</a>
             </div>
         </nav>
         
@@ -115,7 +115,7 @@
                    		value="${info.content1_title}"></h2>
                         <p class="lead"><textarea name="content1">${info.content1}</textarea></p>
                         <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p>
-                        <a class="btn btn-secondary" href="#!">예약하기</a>
+                        <a class="btn btn-secondary" href="#">예약하기</a>
                     </div>
                 </div>
             </div>
