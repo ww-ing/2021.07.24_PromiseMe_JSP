@@ -71,11 +71,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from yaksok_info where yaksokurl=#{yaksokurl}
 	</select>
 	
-	<insert id="insertYaksokReserve" parameterType="yaksok.model.YaksokReserveVO">
+	<!-- 약속 예약 정보 등록 -->
+	<insert id="insertYaksokReserve" parameterType="yaksok.model.YaksokReserveVO" >
 		insert into yaksok_reserve 
 		values(yaksok_reserve_ridx_seq.nextval, #{rusername}, #{rhp}, #{rcontent}, #{rnumber}, 
 		sysdate, #{rcheckedstate}, #{yidx})
 	</insert>
+	
+	<!-- 약속 예약 정보 리스트 부르기 -->
+	<!-- 아이디로 모든 약속 부르기 -->
+	<select id="selectAllYaksokReserve" resultType="yaksok.model.YaksokReserveVO"
+	parameterType="string">
+		select * from yaksok_reserve where yidx=#{yidx}
+	</select>
+	
 	
 </mapper>
 

@@ -43,7 +43,7 @@ public class YaksokDAOMyBatis {
 		return count;
 	}//----------
 	
-	/**모든 약속 불러오기*/
+	/**약속 정보 리스트*/
 	public List<YaksokVO> selectAllYaksok(String idx) {
 		try {
 			ses=this.getSessionFactory().openSession(true);
@@ -53,7 +53,6 @@ public class YaksokDAOMyBatis {
 		} finally {
 			close();
 		}
-		
 		
 	}//----------
 	
@@ -130,6 +129,19 @@ public class YaksokDAOMyBatis {
 		}
 		
 	}
+	
+	/**약속 예약 정보 리스트*/
+	public List<YaksokReserveVO> selectAllYaksokReserve(String yidx) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			List<YaksokReserveVO> arr=ses.selectList(NS+".selectAllYaksokReserve",yidx);
+			return arr;
+			
+		} finally {
+			close();
+		}
+		
+	}//----------
 	
 	private void close() {
 		if(ses!=null) ses.close();

@@ -30,10 +30,10 @@ public class YaksokReserveAction extends AbstractAction {
 		String yaksokurl=req.getParameter("yaksokurl");
 		
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
-		YaksokReserveVO reserveVo=new YaksokReserveVO(null,rusername,rhp,rcontent,
+		YaksokReserveVO vo=new YaksokReserveVO(null,rusername,rhp,rcontent,
 				rnumber,null,"1",yidx);
 		
-		int n=dao.insertYaksokReserve(reserveVo);
+		int n=dao.insertYaksokReserve(vo);
 		
 		String msg=(n>0)? "약속완료! 약속번호는 \""+rnumber+"\"입니다.":"약속실패";
 		String loc=(n>0)? "yaksokReservePage.me?url="+yaksokurl:"javascript:history.back()";

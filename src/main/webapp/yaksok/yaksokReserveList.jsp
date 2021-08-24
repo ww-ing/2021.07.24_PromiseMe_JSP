@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     			
     			<!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -25,89 +26,41 @@
                                             <th>날짜</th>
                                             <th>확인 여부</th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
+                                     </thead>
+                                     <tbody>   
+                                        <c:if test="${reserveList eq null or empty reserveList}">
                                         <tr>
-                                            <td>1</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
+                                            <td>등록된 예약이 없습니다.</td>
                                         </tr>
+                                        </c:if>
+                                        
+                                        <c:if test="${reserveList ne null and not empty reserveList}">
+                                        <c:forEach var="list" items="${reserveList}">
                                         <tr>
-                                            <td>2</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
+                                            <td>${list.ridx}</td>
+                                            <td>${list.rusername}</td>
+                                            <td>${list.rhp}</td>
+                                            <td>${list.rcontent}</td>
+                                            <td>${list.rindate}</td>
+                                            <td>${list.rcheckedstate}</td>
                                         </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>홍길동</td>
-                                            <td>010-1111-1111</td>
-                                            <td>참여 희망합니다 연락주세요.<td>
-                                            <td>2021/08/01</td>
-                                            <td>미확인</td>
-                                        </tr>
+                                        </c:forEach>
+                                        </c:if>
                                     </tbody>
+                                    <tfoot>
+										<tr>
+											<td colspan="3">
+												<ul class="pagination justify-content-center">
+													<c:forEach var="i" begin="1" end="${pageCount}">
+														<li class="page-item <c:if test="${param.cpage eq i}">active</c:if>">
+															<a class="page-link" 
+															href="prodDetail.me?cpage=${i}&pnum=${item.pnum}">${i}</a>
+														</li>
+													</c:forEach>
+												</ul>
+											</td>
+										</tr>
+									</tfoot>
                                 </table>
                             </div>
                         </div>
