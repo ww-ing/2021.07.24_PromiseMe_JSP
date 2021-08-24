@@ -107,15 +107,28 @@ public class YaksokDAOMyBatis {
 	}
 	
 	/**약속 url로 약속 정보 부르기*/
-	public YaksokInfoVO selectYaksokInfoByURL(String yaksokurl) {
+	public YaksokInfoVO selectYaksokInfoByURL(String yaksokURL) {
 		try {
 			ses=this.getSessionFactory().openSession(true);
-			YaksokInfoVO info=ses.selectOne(NS+".selectYaksokInfoByURL",yaksokurl);
+			YaksokInfoVO info=ses.selectOne(NS+".selectYaksokInfoByURL",yaksokURL);
 			return info;
 			
 		} finally {
 			close();
 		}
+	}
+	
+	/**약속 예약 정보 등록*/
+	public int insertYaksokReserve(YaksokReserveVO yaksokReserve) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.insert(NS+".insertYaksokReserve",yaksokReserve);
+			return n;
+			
+		} finally {
+			close();
+		}
+		
 	}
 	
 	private void close() {

@@ -16,15 +16,18 @@
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <form action="yaksokReserve.me" method="post">
+                        	<input type="hidden" name="yidx" value="${info.yidx}">
+                        	<input type="hidden" name="yaksokurl" value="${info.yaksokurl}">
                             <div class="form-group">
                                 <label for="username">이름</label>
                                 <input type="text" autofocus="autofocus" 
-                                class="form-control" name="username">
+                                class="form-control" name="rusername" placeholder="성함">
                             </div>
                     
                             <div class="form-group">
-                                <label for="hp">전화번호</label>
-                                <input type="password" class="form-control" name="rhp">
+                                <label for="rhp">전화번호</label>
+                                <input type="text" class="form-control" name="rhp"
+                                maxlength="11" placeholder="숫자만 입력">
                             </div>
                             
                             <div>

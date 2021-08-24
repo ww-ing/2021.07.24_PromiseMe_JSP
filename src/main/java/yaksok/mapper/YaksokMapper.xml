@@ -71,6 +71,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from yaksok_info where yaksokurl=#{yaksokurl}
 	</select>
 	
+	<insert id="insertYaksokReserve" parameterType="yaksok.model.YaksokReserveVO">
+		insert into yaksok_reserve 
+		values(yaksok_reserve_ridx_seq.nextval, #{rusername}, #{rhp}, #{rcontent}, #{rnumber}, 
+		sysdate, #{rcheckedstate}, #{yidx})
+	</insert>
+	
 </mapper>
 
 

@@ -12,6 +12,8 @@ import yaksok.model.YaksokDAOMyBatis;
 import yaksok.model.YaksokInfoVO;
 import yaksok.model.YaksokVO;
 
+import common.util.RandomNumber;
+
 public class YaksokAddAction extends AbstractAction {
 
 	@Override
@@ -30,10 +32,12 @@ public class YaksokAddAction extends AbstractAction {
 		//약속 등록
 		YaksokVO yaksok=new YaksokVO(null,yaksokname,null,idx);
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
-		int yaksoksuc=dao.insertYaksok(yaksok);
+		int n=dao.insertYaksok(yaksok);
+		
+		String yaksokurl=yaksokname+RandomNumber.randomNumber(8,1);
 		
 		//약속 데이터 등록
-		YaksokInfoVO info=new YaksokInfoVO(null,yaksokname+numberGen(12,1),
+		YaksokInfoVO info=new YaksokInfoVO(null,yaksokurl,
 				"위치","02","1234","6578","010","1234","5678",
 				"imageSample1.png","imageSample2.png","imageSample3.png",
 				"imageSample4.png","imageSample5.png",
@@ -41,8 +45,8 @@ public class YaksokAddAction extends AbstractAction {
 		int infosuc=dao.insertYaksokInfo(info);
 		
 		
-		String message=((yaksoksuc>0)&&(infosuc>0))? "등록 성공":"등록 실패";
-		String loc=((yaksoksuc>0)&&(infosuc>0))? "yaksok.me":"javascript:history.back()";
+		String message=((n>0)&&(infosuc>0))? "등록 성공":"등록 실패";
+		String loc=((n>0)&&(infosuc>0))? "yaksok.me":"javascript:history.back()";
 		
 		req.setAttribute("message", message);
 		req.setAttribute("loc", loc);
@@ -52,32 +56,4 @@ public class YaksokAddAction extends AbstractAction {
 
 	}
 	
-	//약속 url 생성
-	public static String numberGen(int len, int dupCd ) {
-	        
-	        Random rand = new Random();
-	        String numStr = ""; //난수가 저장될 변수
-	        
-	        for(int i=0;i<len;i++) {
-	            
-	            //0~9 까지 난수 생성
-	            String ran = Integer.toString(rand.nextInt(10));
-	            
-	            if(dupCd==1) {
-	                //중복 허용시 numStr에 append
-	                numStr += ran;
-	            }else if(dupCd==2) {
-	                //중복을 허용하지 않을시 중복된 값이 있는지 검사한다
-	                if(!numStr.contains(ran)) {
-	                    //중복된 값이 없으면 numStr에 append
-	                    numStr += ran;
-	                }else {
-	                    //생성된 난수가 중복되면 루틴을 다시 실행한다
-	                    i-=1;
-	                }
-	            }
-	        }
-	        return numStr;
-	    }
-
 }
