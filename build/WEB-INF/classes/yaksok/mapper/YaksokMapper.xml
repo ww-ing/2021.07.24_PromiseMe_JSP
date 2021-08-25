@@ -78,13 +78,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		sysdate, #{rcheckedstate}, #{yidx})
 	</insert>
 	
-	<!-- 약속 예약 정보 리스트 부르기 -->
-	<!-- 아이디로 모든 약속 부르기 -->
-	<select id="selectAllYaksokReserve" resultType="yaksok.model.YaksokReserveVO"
-	parameterType="string">
-		select * from yaksok_reserve where yidx=#{yidx}
+	<!-- 약속 예약 정보 개수 가져오기 -->
+	<select id="getYaksokReserveCount" resultType="int" parameterType="string">
+		select count(*) cnt from yaksok_reserve where yidx=#{yidx}
 	</select>
 	
+	<!-- 페이징 처리된 약속 예약 정보 리스트 부르기 -->
+	<select id="selectAllYaksokReserve" resultType="yaksok.model.YaksokReserveVO"
+	parameterType="hashmap">
+		select * 
+		from(
+		select yaksok_reserve.*, row_number() over(order by yidx desc) yn
+		from yaksok_reserve where yidx=#{yidx}
+		) where
+		yn between #{start} and #{end}
+	</select>
 	
 </mapper>
 

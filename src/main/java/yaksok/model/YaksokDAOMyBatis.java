@@ -1,7 +1,10 @@
 package yaksok.model;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -130,18 +133,36 @@ public class YaksokDAOMyBatis {
 		
 	}
 	
-	/**약속 예약 정보 리스트*/
-	public List<YaksokReserveVO> selectAllYaksokReserve(String yidx) {
+	/**약속 예약 정보 개수*/
+	public int getYaksokReserveCount(String yidx) {
 		try {
 			ses=this.getSessionFactory().openSession(true);
-			List<YaksokReserveVO> arr=ses.selectList(NS+".selectAllYaksokReserve",yidx);
+			int n=ses.selectOne(NS+".getYaksokReserveCount",yidx);
+			return n;
+			
+		} finally {
+			close();
+		}
+
+	}
+	
+	/**약속 예약 정보 리스트*/
+	public List<YaksokReserveVO> selectAllYaksokReserve(String yidx, int start, int end) {
+		try {
+			Map<String, String> map=new HashMap<>();
+			map.put("yidx", yidx);
+			map.put("start", String.valueOf(start));
+			map.put("end", String.valueOf(end));
+			
+			ses=this.getSessionFactory().openSession(true);
+			List<YaksokReserveVO> arr=ses.selectList(NS+".selectAllYaksokReserve",map);
 			return arr;
 			
 		} finally {
 			close();
 		}
 		
-	}//----------
+	}
 	
 	private void close() {
 		if(ses!=null) ses.close();

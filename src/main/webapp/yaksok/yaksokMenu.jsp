@@ -14,14 +14,32 @@
         <link href="yaksok/css/styles.css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-latest.js"></script>
         <script>
+        		/* 페이지 시작 시 발표 */
     			$(function(){
     				showMenu('yaksokSetForm');
     			})
-
+				
+    			/* 메뉴 */
     			function showMenu(menu){
     				$.ajax({
     					type:'get',
     					url:menu+'.me?yidx='+${info.yidx},
+    					cache:false,
+    					dataType:'html'
+
+    				}).done(function(res){
+    					$('#yaksokMenu').html(res);
+    				})
+    				.fail(function(err){
+    					alert('error: '+err.status);
+    				})
+    			}
+    			
+    			/* yaksokReserveList.jsp 페이지의 약속 정보 리스트 */
+    			function showCpage(cpage){
+    				$.ajax({
+    					type:'get',
+    					url:'yaksokReserveList.me?yidx='+${info.yidx}+'&&cpage='+cpage,
     					cache:false,
     					dataType:'html'
 

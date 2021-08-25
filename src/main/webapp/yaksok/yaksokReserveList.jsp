@@ -16,10 +16,11 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                            <h3 class="text-center">총 예약 : ${reserveCount}</h3>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>번호</th>
+                                            <th>#</th>
                                             <th>이름</th>
                                             <th>전화번호</th>
                                             <th>메모</th>
@@ -49,12 +50,12 @@
                                     </tbody>
                                     <tfoot>
 										<tr>
-											<td colspan="3">
+											<td colspan="12">
 												<ul class="pagination justify-content-center">
 													<c:forEach var="i" begin="1" end="${pageCount}">
 														<li class="page-item <c:if test="${param.cpage eq i}">active</c:if>">
 															<a class="page-link" 
-															href="prodDetail.me?cpage=${i}&pnum=${item.pnum}">${i}</a>
+															onclick="showCpage('${i}')">${i}</a>
 														</li>
 													</c:forEach>
 												</ul>
@@ -65,6 +66,4 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
