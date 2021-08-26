@@ -31,7 +31,7 @@
                                      <tbody>   
                                         <c:if test="${reserveList eq null or empty reserveList}">
                                         <tr>
-                                            <td>등록된 예약이 없습니다.</td>
+                                            <td colspan="12" class="text-center">등록된 예약이 없습니다.</td>
                                         </tr>
                                         </c:if>
                                         

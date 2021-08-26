@@ -71,6 +71,5 @@
 	   			</table>
 	   		</form>
 	   	</div>
-	</div>
-	   
+	</div>   
 <jsp:include page="/foot.jsp" />

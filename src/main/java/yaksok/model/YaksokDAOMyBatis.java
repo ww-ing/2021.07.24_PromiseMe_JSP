@@ -84,6 +84,42 @@ public class YaksokDAOMyBatis {
 		}
 	}//-----------
 	
+	/**약속 OnOff 데이터 등록*/
+	public int insertYaksokOnOff(YaksokOnOffVO yaksokOnOff) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.insert(NS+".insertYaksokOnOff", yaksokOnOff);
+			return n;
+			
+		} finally {
+			close();
+		}
+	}
+	
+	/**약속 OnOff 정보 수정*/
+	public int updateYaksokOnOff(YaksokOnOffVO yaksokOnOff) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.update(NS+".updateYaksokOnOff",yaksokOnOff);
+			return n;
+			
+		} finally {
+			close();
+		}
+	}
+	
+	/**yidx로 약속 OnOff 정보 부르기*/
+	public YaksokOnOffVO selectYaksokOnOff(String yidx) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			YaksokOnOffVO onoff=ses.selectOne(NS+".selectYaksokOnOff",yidx);
+			return onoff;
+			
+		} finally {
+			close();
+		}
+	}
+	
 	/**약속 정보 선택*/
 	public YaksokInfoVO selectYaksokInfo(String yidx) {
 		try {

@@ -10,6 +10,7 @@ import common.controller.AbstractAction;
 import member.model.UserVO;
 import yaksok.model.YaksokDAOMyBatis;
 import yaksok.model.YaksokInfoVO;
+import yaksok.model.YaksokOnOffVO;
 import yaksok.model.YaksokVO;
 
 import common.util.RandomNumber;
@@ -44,9 +45,12 @@ public class YaksokAddAction extends AbstractAction {
 				"메인 제목","메인 설명","설명1 제목","설명1","설명2 제목","설명2","설명3 제목","설명3","1");
 		int infosuc=dao.insertYaksokInfo(info);
 		
+		//약속 OnOff 등록
+		YaksokOnOffVO onoff=new YaksokOnOffVO(null,"1","1","1","1");
+		int onoffsuc=dao.insertYaksokOnOff(onoff);
 		
-		String message=((n>0)&&(infosuc>0))? "등록 성공":"등록 실패";
-		String loc=((n>0)&&(infosuc>0))? "yaksok.me":"javascript:history.back()";
+		String message=((n>0)&&(infosuc>0)&&(onoffsuc>0))? "등록 성공":"등록 실패";
+		String loc=((n>0)&&(infosuc>0)&&(onoffsuc>0))? "yaksok.me":"javascript:history.back()";
 		
 		req.setAttribute("message", message);
 		req.setAttribute("loc", loc);

@@ -3,11 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
  
 <jsp:include page="/top.jsp" />
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<h1 class="text-center">약속관리</h1>
 	 <div class="col-12 m-3"> 
 	 <button class="text-right">
-	 <a href="yaksokAddForm.me">NEW</a>
+	 <!-- <a href="yaksokAddForm.me">NEW</a> -->
+	 <a class="btn btn-secondary " href="#yaksokAddModal" data-toggle="modal">New</a>
 	 </button></div>
 	 
 	<table class="table table-striped">
@@ -35,5 +37,5 @@
 		</tr>
 		</c:forEach>
 	</table>
-
+<%@ include file="/yaksok/modal/yaksokAddModal.jsp"%>
 <jsp:include page="/foot.jsp" />

@@ -50,6 +50,22 @@
     					alert('error: '+err.status);
     				})
     			}
+    			
+    			/* yaksoksetting.jsp 페이지의 약속 OnOff 정보 업데이트 
+    			function updateSetting(){
+    				$.ajax({
+    					type:'post',
+    					url:'yaksokSetting.me?yaksokOnOff='+${yaksokOnOff}+"calendarOnOff"
+    					cache:false,
+    					dataType:'html'
+
+    				}).done(function(res){
+    					$('#yaksokMenu').html(res);
+    				})
+    				.fail(function(err){
+    					alert('error: '+err.status);
+    				})
+    			}*/
 
     		    function submit() {
     		        document.forms["info"].submit();
