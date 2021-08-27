@@ -9,7 +9,7 @@
 <link href="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/css/bootstrap4-toggle.min.css" rel="stylesheet">  
 <script src="//cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.4.0/js/bootstrap4-toggle.min.js"></script>
 
-<form name="settingF" action="yaksokSettingEnd.me" method="post">
+<form name="settingF" action="#" method="post">
 	<input type="hidden" name="yidx" value="${onoffData.yidx}">
 	<h3>설정</h3>
 	<div class="m-5">
@@ -36,6 +36,11 @@
 		<div class="mb-3">
 			<input type="checkbox" data-toggle="toggle" name="payOnOff" ${payonoffCheck}>
 		</div>	
+			예약 제한:
+			<br>
+		<div class="mb-3">
+			<input type="checkbox" data-toggle="toggle" name="maxreserveOnOff" ${maxreserveonoffCheck}>
+		</div>	
 	</div>
-	<button class="btn btn-primary">저장</button>
+	<a class="btn btn-primary" onclick="updateSetting()">저장</a>
 </form>

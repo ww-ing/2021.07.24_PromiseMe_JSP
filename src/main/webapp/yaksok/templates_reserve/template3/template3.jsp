@@ -77,7 +77,8 @@
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; (주) 약속하는사람들 2021 </p></div>
         </footer>
 		<!-- yaksokBookingModal.jsp의 소스를 include------------------------ -->
-		<%@ include file="/yaksok/yaksokReserveModal.jsp"%>
- 		<!-- ------------------------------------------------------------- -->          
+		<%@ include file="/yaksok/modal/yaksokReserveModal.jsp"%>
+ 		<!-- -----------------------------------
+ 		-------------------------- -->          
 	</body>
 </html>

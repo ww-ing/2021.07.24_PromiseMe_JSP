@@ -46,7 +46,7 @@ public class YaksokAddAction extends AbstractAction {
 		int infosuc=dao.insertYaksokInfo(info);
 		
 		//약속 OnOff 등록
-		YaksokOnOffVO onoff=new YaksokOnOffVO(null,"1","1","1","1");
+		YaksokOnOffVO onoff=new YaksokOnOffVO(null,"1","1","1","1","1");
 		int onoffsuc=dao.insertYaksokOnOff(onoff);
 		
 		String message=((n>0)&&(infosuc>0)&&(onoffsuc>0))? "등록 성공":"등록 실패";

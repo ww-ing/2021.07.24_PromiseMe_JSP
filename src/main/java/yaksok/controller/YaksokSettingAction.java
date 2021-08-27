@@ -36,11 +36,16 @@ public class YaksokSettingAction extends AbstractAction {
 		if(onoffData.getPayonoff().equals("1")) {
 			payonoffCheck="checked";
 		}
+		String maxreserveonoffCheck="";
+		if(onoffData.getMaxreserve().equals("1")) {
+			maxreserveonoffCheck="checked";
+		}
 		
 		req.setAttribute("yaksokonoffCheck", yaksokonoffCheck);
 		req.setAttribute("calendaronoffCheck", calendaronoffCheck);
 		req.setAttribute("overlaponoffCheck", overlaponoffCheck);
 		req.setAttribute("payonoffCheck", payonoffCheck);
+		req.setAttribute("maxreserveonoffCheck", maxreserveonoffCheck);
 		
 		
 		

@@ -41,14 +41,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 약속 OnOff 데이터 등록 -->
 	<insert id="insertYaksokOnOff" parameterType="yaksok.model.YaksokOnOffVO">	
 		insert into yaksok_onoff
-		(yidx, yaksokonoff, calendaronoff, overlaponoff, payonoff)
-		values(yaksok_onoff_yidx_seq.nextval, #{yaksokonoff}, #{calendaronoff}, #{overlaponoff}, #{payonoff})
+		(yidx, yaksokonoff, calendaronoff, overlaponoff, payonoff, maxreserve)
+		values(yaksok_onoff_yidx_seq.nextval, #{yaksokonoff}, #{calendaronoff}, 
+		#{overlaponoff}, #{payonoff}, #{maxreserve})
 	</insert>
 	
 	<!-- 약속 OnOff 데이터 수정 -->
 	<update id="updateYaksokOnOff" parameterType="yaksok.model.YaksokOnOffVO">
 		update yaksok_onoff set yaksokonoff=#{yaksokonoff}, calendaronoff=#{calendaronoff}, 
-		overlaponoff=#{overlaponoff}, payonoff=#{payonoff} where yidx=#{yidx}
+		overlaponoff=#{overlaponoff}, payonoff=#{payonoff}, maxreserve=#{maxreserve} 
+		where yidx=#{yidx}
 	</update>
 	
 	<!-- yidx로 약속 OnOff 데이터 부르기  -->

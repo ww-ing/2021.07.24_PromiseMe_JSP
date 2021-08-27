@@ -7,18 +7,21 @@ public class YaksokOnOffVO {
 	private String calendaronoff;
 	private String overlaponoff;
 	private String payonoff;
+	private String maxreserve;
 	
 	public YaksokOnOffVO() {
 		
 	}
 
-	public YaksokOnOffVO(String yidx, String yaksokonoff, String calendaronoff, String overlaponoff, String payonoff) {
+	public YaksokOnOffVO(String yidx, String yaksokonoff, String calendaronoff, String overlaponoff, String payonoff,
+			String maxreserve) {
 		super();
 		this.yidx = yidx;
 		this.yaksokonoff = yaksokonoff;
 		this.calendaronoff = calendaronoff;
 		this.overlaponoff = overlaponoff;
 		this.payonoff = payonoff;
+		this.maxreserve = maxreserve;
 	}
 
 	public String getYidx() {
@@ -60,6 +63,15 @@ public class YaksokOnOffVO {
 	public void setPayonoff(String payonoff) {
 		this.payonoff = payonoff;
 	}
+
+	public String getMaxreserve() {
+		return maxreserve;
+	}
+
+	public void setMaxreserve(String maxreserve) {
+		this.maxreserve = maxreserve;
+	}
+
 	
 	
 

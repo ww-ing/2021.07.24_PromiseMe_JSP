@@ -47,25 +47,29 @@
     					$('#yaksokMenu').html(res);
     				})
     				.fail(function(err){
-    					alert('error: '+err.status);
+    					alert('수정실패'+' error: '+err.status);
     				})
     			}
     			
-    			/* yaksoksetting.jsp 페이지의 약속 OnOff 정보 업데이트 
+    			/* yaksoksetting.jsp 페이지의 약속 OnOff 정보 업데이트*/
     			function updateSetting(){
+
     				$.ajax({
-    					type:'post',
-    					url:'yaksokSetting.me?yaksokOnOff='+${yaksokOnOff}+"calendarOnOff"
+    					type:'get',
+    					url:'yaksokSettingUpdate.me',
+    					data:$('form').serialize(),
     					cache:false,
     					dataType:'html'
-
+    					
     				}).done(function(res){
-    					$('#yaksokMenu').html(res);
+    					alert('수정 완료');
+    					$('#yaksokMenu').innerhtml(res);
     				})
     				.fail(function(err){
     					alert('error: '+err.status);
     				})
-    			}*/
+    				
+    			}
 
     		    function submit() {
     		        document.forms["info"].submit();

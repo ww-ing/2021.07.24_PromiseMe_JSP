@@ -176,7 +176,7 @@ public class YaksokInfoVO implements Serializable {
 	public void setImage2(String image2) {
 		this.image2 = image2;
 	}
-
+ 
 	public String getImage3() {
 		return image3;
 	}
