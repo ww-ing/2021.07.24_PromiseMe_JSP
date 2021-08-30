@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.controller.AbstractAction;
+import member.model.UserDAOMyBatis;
+import member.model.UserVO;
 
 public class IdCheckAction extends AbstractAction {
 
@@ -12,11 +14,17 @@ public class IdCheckAction extends AbstractAction {
 	throws Exception {
 		String userid=req.getParameter("userid");
 		
-		System.out.println("userid="+userid);
+		UserDAOMyBatis userDao=new UserDAOMyBatis();
+		UserVO user=userDao.selectUserById(userid);
 		
-		this.setRedirect(false);
-		this.setViewPage("join.me");
-
+		if(user!=null) {
+			this.setRedirect(false);
+			this.setViewPage("");
+		}else {
+			this.setRedirect(false);
+			this.setViewPage("join.me");
+		}
+		
 	}
 
 }

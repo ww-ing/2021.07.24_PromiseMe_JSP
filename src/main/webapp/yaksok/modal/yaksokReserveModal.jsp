@@ -16,6 +16,9 @@
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <form action="yaksokReserve.me" method="post">
+                        	<div class="form-group" align="right">
+                        		<a class="btn btn-primary" href="#yaksokCalendarModal" data-toggle="modal">일정</a>
+                        	</div>
                         	<input type="hidden" name="yidx" value="${info.yidx}">
                         	<input type="hidden" name="yaksokurl" value="${info.yaksokurl}">
                             <div class="form-group">
@@ -30,14 +33,14 @@
                                 maxlength="11" placeholder="숫자만 입력">
                             </div>
                             
-                            <div>
+                            <div class="form-group">
                             	<label for="hp">요청사항</label>
-                            	<p><textarea name="rcontent"></textarea></p>
+                            	<p><textarea name="rcontent" cols="55" rows="5"></textarea></p>
                             </div>
-                            <div class="form-group text-center">
-                            <button class="btn btn-primary btn-block">약속하기</button>
-                            <button class="btn btn-danger" 
-                            data-dismiss="modal">닫기</button>
+                            <div class="form-group" align="center">
+                            	<button class="btn btn-primary btn-block">약속하기</button>
+                            	<button class="btn btn-danger" 
+                            	data-dismiss="modal">닫기</button>
                             </div>
                         </form>
                     </div>
@@ -45,3 +48,4 @@
             </div>
         </div>
         <!-- ---------- -->
+        <%@ include file="/yaksok/modal/yaksokCalendarModal.jsp"%>

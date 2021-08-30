@@ -83,9 +83,6 @@
 					<input type="text" name="userid" value="${user.userid}" placeholder="User ID"
 					readonly class="form-control">
 					</div>
-					<div class="col-md-4">
-					<button type="button" onclick="openWin()" class="btn btn-primary">아이디 중복 체크</button>
-					</div>
 				</div>
 				</td>
 			</tr>
@@ -152,7 +149,6 @@
 			<tr>
 				<td colspan="2" class="text-center">
 					<button type="button" onclick="check()" class="btn btn-success">수정하기</button>
-					<button type="reset" class="btn btn-danger">다시쓰기</button>
 				</td>
 			</tr>
 		</table>
