@@ -35,7 +35,12 @@
     color: #288CFF;
 }
 
-.custom_calendar_table tbody td.select_day dayVal {
-    background-color: #288CFF;
+.custom_calendar_table tbody td {
+	text-align:right;
+	height:120px;
+}
+
+.custom_calendar_table tbody td.select_day div.dayVal{
+    background-color: red;
     color: #fff;
 }

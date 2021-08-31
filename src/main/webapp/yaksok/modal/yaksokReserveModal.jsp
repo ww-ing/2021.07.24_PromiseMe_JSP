@@ -4,13 +4,12 @@
 <c:set var="myctx" value="${pageContext.request.contextPath}"/> 
   
 		<!-- Modal Dialog -->
-        <div class="modal" id="yaksokBookingModal">
+        <div class="modal" id="yaksokReserveModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="text-primary" style="margin:auto">약속해줘 예약</h4>
-                        <button class="close" data-dismiss="modal">&times;</button>
                     </div>
 					
                     <!-- Modal Body -->
@@ -48,4 +47,3 @@
             </div>
         </div>
         <!-- ---------- -->
-        <%@ include file="/yaksok/modal/yaksokCalendarModal.jsp"%>

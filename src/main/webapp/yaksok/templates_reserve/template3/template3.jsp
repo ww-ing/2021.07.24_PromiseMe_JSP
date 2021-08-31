@@ -33,7 +33,7 @@
                         <h2>${info.content1_title}</h2>
                         <p class="lead">${info.content1}</p>
                         <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p>
-                        <a class="btn btn-secondary " href="#yaksokBookingModal" data-toggle="modal">예약하기</a>
+                        <a class="btn btn-secondary " href="#yaksokReserveModal" data-toggle="modal">예약하기</a>
                     </div>
                 </div>
             </div>

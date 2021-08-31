@@ -70,6 +70,26 @@
     				})
     				
     			}
+    			
+    			/* yaksokCalendarAddModal.jsp 페이지의 캘린더 일정 업데이트*/
+    			function insertCalendar(){
+    				
+    				$.ajax({
+    					type:'get',
+    					url:'yaksokCalendarAdd.me',
+    					data:$('form').serialize(),
+    					cache:false,
+    					dataType:'html'
+    					
+    				}).done(function(res){
+    					alert('등록 완료');
+    					$('#yaksokMenu').innerhtml(res);
+    				})
+    				.fail(function(err){
+    					alert('error: '+err.status);
+    				})
+    				
+    			}
 
     		    function submit() {
     		        document.forms["info"].submit();
@@ -83,8 +103,8 @@
                 <div class="sidebar-heading border-bottom bg-light">약속해줘</div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokSetForm')">테마</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokReserveList')">예약관리</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokCalendar')">일정관리</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokReserveList')">예약관리</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokStatistics')">통계</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokSetting')">설정</a>
                     

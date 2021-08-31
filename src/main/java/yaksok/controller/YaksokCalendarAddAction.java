@@ -5,17 +5,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.controller.AbstractAction;
 
-public class YaksokCalendarAction extends AbstractAction {
+public class YaksokCalendarAddAction extends AbstractAction {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
-		
-		String yidx=req.getParameter("yidx");
-		req.setAttribute("yidx", yidx);
+		String ctitle=req.getParameter("ctitle");
+		String ccontent=req.getParameter("ccontent");
+		System.out.println("ctitle="+ctitle);
+		System.out.println("ccontent"+ccontent);
 		
 		this.setRedirect(false);
-		this.setViewPage("yaksok/yaksokCalendar.jsp");
+		this.setViewPage("start.me");
 
 	}
 

@@ -53,10 +53,10 @@ public class LoginEndAction extends AbstractAction {
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
-			java.util.Date d = new java.util.Date();
-			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy_MM_dd hh:mm:ss");
-			String time = sdf.format(d);
-			session.setAttribute("loginTime", time);
+//			java.util.Date d = new java.util.Date();
+//			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy_MM_dd hh:mm:ss");
+//			String time = sdf.format(d);
+//			session.setAttribute("loginTime", time);
 			
 			//쿠키 등록
 			Cookie ck = new Cookie("uid",loginUser.getUserid());//쿠키 생성

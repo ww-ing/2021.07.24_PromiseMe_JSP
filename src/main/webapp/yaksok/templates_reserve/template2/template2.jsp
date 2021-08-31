@@ -30,7 +30,7 @@
 			<div class="tm-right-inner-container">
 				<h1 class="templatemo-header">${info.content_main_title}</h1>
 				<img src="yaksok/templates_reserve/template2/images/wooden-desk.jpg" alt="Wooden Desk" class="img-thumbnail">
-				<a class="btn btn-secondary " href="#yaksokBookingModal" data-toggle="modal">예약하기</a>
+				<a class="btn btn-secondary " href="#yaksokReserveModal" data-toggle="modal">예약하기</a>
 				<article>
 					<h2>${info.content1_title}</h2>
 					<p>${info.content1}</p>
