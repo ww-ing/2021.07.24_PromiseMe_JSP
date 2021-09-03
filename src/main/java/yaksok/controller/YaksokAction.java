@@ -20,6 +20,7 @@ public class YaksokAction extends AbstractAction {
 		//세션에서 꺼내오기
 		HttpSession session=req.getSession();
 		UserVO user=(UserVO) session.getAttribute("loginUser");
+		
 		String idx=user.getIdx();
 
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();

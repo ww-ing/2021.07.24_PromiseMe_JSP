@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +49,7 @@
         for (i = 1; i <= thisLastDay.getDate(); i++) {
             if (cnt % 7 == 0) { tag += "<tr>"; }
 
-            tag += "<td><div class='dayVal'>" + i + "</div><br> <div class='dayList'></div> <br></td>";
+            tag += "<td><div class='dayVal'>" + i + "</div><br> <div id='"+ year +"-"+ month +"-"+ i +"' class='dayList'></div> <br></td>";
             cnt++;
             if (cnt % 7 == 0) {
                 tag += "</tr>";
@@ -60,6 +61,7 @@
         function assembly(year, month) {
             var calendar_html_code =
                 "<table class='custom_calendar_table' style='margin:auto'>" +
+                "<input type='hidden' name='yidx' value='${yidx}'>" +
                 "<colgroup>" +
                 "<col style='width:180px'/>" +
                 "<col style='width:180px'/>" +
@@ -79,6 +81,7 @@
                 "</thead>" +
                 "<tbody id='custom_set_date'>" +
                 "</tbody>" +
+                "</form>" +
                 "</table>" +
                 "<a class='btn btn-primary' href='#yaksokCalendarAddModal' data-toggle='modal'>등록</a>";
             return calendar_html_code;
@@ -89,43 +92,67 @@
             $(".custom_calendar_table").on("click", ".prev", function () {
                 nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() - 1, nowDate.getDate());
                 calendarMaker($(target), nowDate);
+                addList();
             });
-            //다음날 클릭
+            //다음달 클릭
             $(".custom_calendar_table").on("click", ".next", function () {
-                nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, nowDate.getDate());
-                calendarMaker($(target), nowDate);
-            });
-          	//일자 선택 클릭
-            $(".custom_calendar_table").on("click", "td", function () {
-                $(".custom_calendar_table .select_day").removeClass("select_day");
-                $(this).removeClass("select_day").addClass("select_day");
-            });
-            //버튼 클릭
-            $("#addButton").click(function() {
-            	var selectDay=$(".select_day .dayVal").html();
-            	alert(year+"/"+month+"/"+selectDay)
-            	return;
-            });
-            //value 테스트
-          /*   $(".dayVal").click(function() {
-            	alert('숫자')
-            }) */
-            $(".dayList").click(function() {
-            	alert('문자')
-            }) 
-            
-        }
+           	 nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, nowDate.getDate());
+             calendarMaker($(target), nowDate);
+             addList();
+         });
+       	//일자 선택 클릭
+         $(".custom_calendar_table").on("click", "td", function () {
+         	$(".custom_calendar_table .select_day").removeClass("select_day");
+            $(this).removeClass("select_day").addClass("select_day");
+            var selectDay=$(".select_day .dayVal").html();
+        });
+        //추가 버튼 클릭
+        $("#yaksokAddButton").click(function() {
+        	var selectDay=$(".select_day .dayVal").html();
+        	insertCalendar(year,month,selectDay);
+        });
         
-        function move(){
-        	for(i=1; i<=3; i++){
-        		$(".dayList").append("테스트");
-        		
-        	}
-        		
-        }
+        //value 테스트
+      	/*   $(".dayVal").click(function() {
+        	alert('숫자')
+        }) 
         
-    }
-    </script>
+        $(".dayList").click(function() {
+        	alert('문자')
+        })
+         */
+         
+     }
+    
+    function addList(){
+   	 	//alert(month+"/"+year)
+        	
+   	 	/* for(i = 1; i <= thisLastDay.getDate(); i++) {
+   	 			
+   	 		var dayVal = i;
+   	 		var monthVal = month;
+   	 		var yearVal = year;
+   	 		var arr = []; */
+			
+       		"<c:forEach var='list' items='${calendarList}'>" +
+				$('#${list.cyear}-${list.cmonth}-${list.cday}').append('<div>${list.ctitle}</div>') +
+			"</c:forEach>" 
+
+   	 		
+   	 		
+        	/* 	$('#'+i).append(
+	                       		"<c:forEach var='list' items='${calendarList}'>" +
+			                       		"<c:if test='${list.cday eq "+String(dayVal)+"}'>" +
+	                       					"<div>${list.ctitle}</div>" +
+	                       				"</c:if>" +
+	                       		"</c:forEach>" 
+       		); */
+       	//}
+   			
+   }
+       addList();   
+}
+</script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -134,7 +161,7 @@
 			<div class="card shadow mb-4 text-center">
 				<div class="card-body">
 					<div class="table-responsive">
-			
+						
 						<!--  -->
     					<div id="calendarForm" ></div>
     					<!--  -->

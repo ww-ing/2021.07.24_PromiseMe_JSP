@@ -30,7 +30,7 @@
                             	<input type="text" class="form-control" name="headcount">
                             </div> -->            
                             <div class="form-group" align="center">
-                            	<a class="btn btn-primary btn-block" onclick="insertCalendar()">약속하기</a>
+                            	<a class="btn btn-primary btn-block" id="yaksokAddButton">약속하기</a>
                             	<button class="btn btn-danger" 
                             	data-dismiss="modal">닫기</button>
                             </div>

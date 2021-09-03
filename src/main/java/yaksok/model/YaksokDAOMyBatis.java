@@ -200,6 +200,30 @@ public class YaksokDAOMyBatis {
 		
 	}
 	
+	/**약속 캘린더 일정 등록*/
+	public int insertYaksokCalendar(YaksokCalendarVO yaksokCalendar) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.insert(NS+".insertYaksokCalendar",yaksokCalendar);
+			return n;
+			
+		} finally {
+			close();
+		}
+	}
+	
+	/**약속 yidx로 캘린더 정보 불러오기*/
+	public List<YaksokCalendarVO> selectAllYaksokCalendar(String yidx){
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			List<YaksokCalendarVO> arr=ses.selectList(NS+".selectAllYaksokCalendar",yidx);
+			return arr;
+		} finally {
+			close();
+		}
+	}
+	
+	
 	private void close() {
 		if(ses!=null) ses.close();
 		

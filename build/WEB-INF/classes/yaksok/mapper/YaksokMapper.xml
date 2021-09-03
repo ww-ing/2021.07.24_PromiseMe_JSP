@@ -64,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectAllYaksok" resultType="yaksok.model.YaksokVO"
 	parameterType="string">
 		select 
-		<include refid="yaksok_column"/>
+		*
 		from yaksok where idx=#{idx} 
 	</select>
 	
@@ -88,7 +88,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<!-- 약속 url로 약속 정보 부르기 -->
-	<select id="selectYaksokInfoByURL" parameterType="yaksok.model.YaksokInfoVO"
+	<select id="selectYaksokInfoByURL" parameterType="string"
 	resultType="yaksok.model.YaksokInfoVO">
 		select * from yaksok_info where yaksokurl=#{yaksokurl}
 	</select>
@@ -114,6 +114,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from yaksok_reserve where yidx=#{yidx}
 		) where
 		yn between #{start} and #{end}
+	</select>
+	
+	<!-- 약속 캘린더 일정 등록 -->
+	<insert id="insertYaksokCalendar" parameterType="yaksok.model.YaksokCalendarVO">
+		insert into yaksok_calendar
+		values(yaksok_calendar_cidx_seq.nextval, #{ctitle}, #{ccontent}, #{cyear}, #{cmonth}, #{cday}, #{yidx})
+	</insert>
+	
+	<!-- 약속 캘린더 리스트 부르기 -->
+	<select id="selectAllYaksokCalendar" resultType="yaksok.model.YaksokCalendarVO"
+	parameterType="string">
+		select * from yaksok_calendar where yidx=#{yidx}
 	</select>
 	
 </mapper>

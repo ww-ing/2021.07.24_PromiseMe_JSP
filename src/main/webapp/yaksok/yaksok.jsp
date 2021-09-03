@@ -34,6 +34,7 @@
 				<button>관리</button>
 			</form>
 		   </td>
+		   
 		</tr>
 		</c:forEach>
 	</table>

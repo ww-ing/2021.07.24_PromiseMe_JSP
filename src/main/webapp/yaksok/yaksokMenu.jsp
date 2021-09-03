@@ -72,11 +72,11 @@
     			}
     			
     			/* yaksokCalendarAddModal.jsp 페이지의 캘린더 일정 업데이트*/
-    			function insertCalendar(){
+    			function insertCalendar(year,month,selectDay){
     				
     				$.ajax({
     					type:'get',
-    					url:'yaksokCalendarAdd.me',
+    					url:'yaksokCalendarAdd.me?year='+year+'&&month='+month+'&&day='+selectDay,
     					data:$('form').serialize(),
     					cache:false,
     					dataType:'html'
