@@ -152,8 +152,8 @@
     			
     			
     			
-    			/* yaksokCalendar.jsp의 yaksokCalendarEditModal.jsp의 모달*/
-    			function yaksokCalendarEdit(cidx,yidx){
+    			/* yaksokCalendar.jsp의 yaksokCalendarEditModal.jsp의 모달 일정 수정하기*/
+    			function yaksokCalendarEdit(){
     				
     				$.ajax({
     					type:'get',
@@ -166,9 +166,31 @@
     					alert('수정 완료')
     					yaksokCalendarEditModalHide();
     					$('#yaksokMenu').html(res) 
-    					
+    				})
+    				.fail(function(err){
+    					alert('error: '+err.status);
     				})
     				
+    			}
+    			
+    			/* yaksokCalendar.jsp의 yaksokCalendarEditModal.jsp의 모달 일정 삭제하기 */
+    			function yaksokCalendarDelete(cidx,yidx){
+    				
+    				$.ajax({
+    					type:'get',
+    					url:'yaksokCalendarDelete.me',
+    					data:$('form').serialize(),
+    					cache:false,
+    					dataType:'html'
+    					
+    				}).done(function(res){
+    					alert('삭제 완료')
+    					yaksokCalendarEditModalHide();
+    					$('#yaksokMenu').html(res) 
+    				})
+    				.fail(function(err){
+    					alert('error: '+err.status);
+    				})
     			}
     			
     			/* 뭔지 찾아봐야 됨 기억안남 */

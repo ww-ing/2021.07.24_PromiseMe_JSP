@@ -46,6 +46,8 @@ public class YaksokDAOMyBatis {
 		return count;
 	}//----------
 	
+	//--------------------약속 정보
+	
 	/**약속 정보 리스트*/
 	public List<YaksokVO> selectAllYaksok(String idx) {
 		try {
@@ -57,7 +59,7 @@ public class YaksokDAOMyBatis {
 			close();
 		}
 		
-	}//----------
+	}
 	
 	/**약속 등록*/
 	public int insertYaksok(YaksokVO yaksok) {
@@ -82,7 +84,33 @@ public class YaksokDAOMyBatis {
 		} finally {
 			close();
 		}
-	}//-----------
+	}
+	
+	/**yidx로 약속 정보 선택*/
+	public YaksokInfoVO selectYaksokInfo(String yidx) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			YaksokInfoVO info=ses.selectOne(NS+".selectYaksokInfo",yidx);
+			return info;
+			
+		} finally {
+			close();
+		}
+	}
+	
+	/**약속 정보 수정*/
+	public int updateYaksokInfo(YaksokInfoVO yaksokInfo) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.update(NS+".updateYaksokInfo",yaksokInfo);
+			return n;
+			
+		} finally {
+			close();
+		}
+	}
+	
+	//--------------------약속 OnOff 설정 페이지
 	
 	/**약속 OnOff 데이터 등록*/
 	public int insertYaksokOnOff(YaksokOnOffVO yaksokOnOff) {
@@ -120,29 +148,7 @@ public class YaksokDAOMyBatis {
 		}
 	}
 	
-	/**약속 정보 선택*/
-	public YaksokInfoVO selectYaksokInfo(String yidx) {
-		try {
-			ses=this.getSessionFactory().openSession(true);
-			YaksokInfoVO info=ses.selectOne(NS+".selectYaksokInfo",yidx);
-			return info;
-			
-		} finally {
-			close();
-		}
-	}//-----------
-	
-	/**약속 정보 수정*/
-	public int updateYaksokInfo(YaksokInfoVO yaksokInfo) {
-		try {
-			ses=this.getSessionFactory().openSession(true);
-			int n=ses.update(NS+".updateYaksokInfo",yaksokInfo);
-			return n;
-			
-		} finally {
-			close();
-		}
-	}
+	//--------------------약속 예약 정보	
 	
 	/**약속 url로 약속 정보 부르기*/
 	public YaksokInfoVO selectYaksokInfoByURL(String yaksokURL) {
@@ -200,6 +206,8 @@ public class YaksokDAOMyBatis {
 		
 	}
 	
+	//---------------------캘린더
+	
 	/**약속 캘린더 일정 등록*/
 	public int insertYaksokCalendar(YaksokCalendarVO yaksokCalendar) {
 		try {
@@ -246,10 +254,22 @@ public class YaksokDAOMyBatis {
 		}
 	}
 	
+	/**약속 캘린더 일정 삭제*/
+	public int deleteYaksokCalendar(String cidx) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.delete(NS+".deleteYaksokCalendar",cidx);
+			return n;
+			
+		} finally {
+			close();
+		}
+	}
+	
 	
 	private void close() {
 		if(ses!=null) ses.close();
 		
-	}//----------
+	}
 
 }

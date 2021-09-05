@@ -28,7 +28,8 @@
                             </div>
                                
                             <div class="form-group" align="center">
-                            	<a class="btn btn-primary btn-block" href="#" onclick="yaksokCalendarEdit(${cidx},${yidx})">수정하기</a>
+                            	<a class="btn btn-primary btn-block" href="#" onclick="yaksokCalendarEdit()">수정</a>
+                            	<a class="btn btn-primary btn-block" href="#" onclick="yaksokCalendarDelete()">삭제</a>
                             	<button class="btn btn-danger" 
                             	data-dismiss="modal">닫기</button>
                             </div>
