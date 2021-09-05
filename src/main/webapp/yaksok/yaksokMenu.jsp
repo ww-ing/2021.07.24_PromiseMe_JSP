@@ -12,7 +12,9 @@
         <link rel="icon" type="image/x-icon" href="yaksok/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="yaksok/css/styles.css" rel="stylesheet" />
-        <script src="https://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        
         <script>
         		/* 페이지 시작 시 발표 */
     			$(function(){
@@ -34,6 +36,8 @@
     					alert('error: '+err.status);
     				})
     			}
+        		
+    			//-------------------------------------------------약속 예약 정보 페이징
     			
     			/* yaksokReserveList.jsp 페이지의 약속 정보 리스트 */
     			function showCpage(cpage){
@@ -51,6 +55,8 @@
     				})
     			}
     			
+    			//-------------------------------------------------약속 OnOff
+    			
     			/* yaksoksetting.jsp 페이지의 약속 OnOff 정보 업데이트*/
     			function updateSetting(){
 
@@ -63,7 +69,7 @@
     					
     				}).done(function(res){
     					alert('수정 완료');
-    					$('#yaksokMenu').innerhtml(res);
+    					$('#yaksokMenu').html(res);
     				})
     				.fail(function(err){
     					alert('error: '+err.status);
@@ -71,7 +77,29 @@
     				
     			}
     			
-    			/* yaksokCalendarAddModal.jsp 페이지의 캘린더 일정 업데이트*/
+    			//-------------------------------------------------약속 캘린더
+    			
+    			/* yaksokCalendarAddModal.jsp 의 추가 버튼 클릭 시 추가하기*/
+    	      	function yaksokAddButton(){
+    	      		var selectYear=$(".selectYear").html();
+    	       	 	var slectMonth=$(".selectMonth").html();
+    	       	 	var selectDay=$(".select_day .dayVal").html(); 
+    	       	 	alert(selectYear+"/"+slectMonth+"/"+selectDay);
+    	       	 	insertCalendar(selectYear,slectMonth,selectDay);
+    	      		
+    	      	}
+    			
+    			/*yaksokCalendarAddModal.jsp 모달 보여주기*/
+    			function yaksokCalendarAddModalShow(){
+    				$('#yaksokCalendarAddModal').modal('show')
+    			}
+    			
+    			/*yaksokCalendarAddModal.jsp 모달 숨기기*/
+    			function yaksokCalendarAddModalHide(){
+    				$('#yaksokCalendarAddModal').modal('hide')
+    			}
+    			
+    			/* yaksokCalendarAddModal.jsp 페이지의 캘린더 일정 등록 버튼 클릭 시*/
     			function insertCalendar(year,month,selectDay){
     				
     				$.ajax({
@@ -82,15 +110,68 @@
     					dataType:'html'
     					
     				}).done(function(res){
-    					alert('등록 완료');
-    					$('#yaksokMenu').innerhtml(res);
+    					alert('등록 완료')
+    					yaksokCalendarAddModalHide();
+    					$('#yaksokMenu').html(res) 
     				})
     				.fail(function(err){
     					alert('error: '+err.status);
     				})
     				
     			}
-
+    			
+    			/* yaksokCalendar.jsp의 yaksokCalendarEditModal.jsp의 모달 보여주기 */
+    			function yaksokCalendarEditModalShow(){
+    		    	$('#yaksokCalendarEditModal').modal('show')
+    		    } 
+    			
+    			/* yaksokCalendar.jsp의 yaksokCalendarEditModal.jsp의 모달 숨기기 */
+    			function yaksokCalendarEditModalHide(){
+    		    	$('#yaksokCalendarEditModal').modal('hide')
+    		    }
+    			
+    			/* yaksokCalendar.jsp의 일정 클릭 시 yaksokCalendarEditModal.jsp의 모달에 데이터 전달하고 보여주기 */
+    			function editCalendar(yidx,cidx){
+    		    	
+    		    	$.ajax({
+    		    		type:'get',
+    		    		url:'yaksokCalendarEditModal.me?yidx='+yidx+'&&cidx='+cidx,
+    		    		cache:false,
+    		    		dataType:'html'
+    		    		
+    		    	}).done(function(res){
+    		    		//yaksokCalendarEditModalShow();
+    		    		$('#yaksokCalendarEditModal').html(res)
+    		    		$('#yaksokCalendarEditModal').modal('show')
+    		    	}) 
+    		    	.fail(function(err){
+    		    		alert('error: '+err.status);
+    		    	})
+    		    	
+    		    }
+    			
+    			
+    			
+    			/* yaksokCalendar.jsp의 yaksokCalendarEditModal.jsp의 모달*/
+    			function yaksokCalendarEdit(cidx,yidx){
+    				
+    				$.ajax({
+    					type:'get',
+    					url:'yaksokCalendarEdit.me',
+    					data:$('form').serialize(),
+    					cache:false,
+    					dataType:'html'
+    					
+    				}).done(function(res){
+    					alert('수정 완료')
+    					yaksokCalendarEditModalHide();
+    					$('#yaksokMenu').html(res) 
+    					
+    				})
+    				
+    			}
+    			
+    			/* 뭔지 찾아봐야 됨 기억안남 */
     		    function submit() {
     		        document.forms["info"].submit();
     		    }

@@ -223,6 +223,29 @@ public class YaksokDAOMyBatis {
 		}
 	}
 	
+	/**약속 일정 cidx로 캘린더 일정 정보 불러오기*/
+	public YaksokCalendarVO selectYaksokCalendarSchedule(String cidx) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			YaksokCalendarVO info=ses.selectOne(NS+".selectYaksokCalendarSchedule",cidx);
+			return info;
+
+		} finally {
+			close();
+		}
+	}
+	
+	/**약속 캘린더 일정 수정*/
+	public int updateYaksokCalendar(YaksokCalendarVO yaksokCalendar) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.update(NS+".updateYaksokCalendar",yaksokCalendar);
+			return n;
+		} finally {
+			close();
+		}
+	}
+	
 	
 	private void close() {
 		if(ses!=null) ses.close();

@@ -14,9 +14,6 @@ public class YaksokReservePageAction extends AbstractAction {
 	throws Exception {
 		
 		String yaksokurl=req.getParameter("url");
-		System.out.println(yaksokurl);
-		
-		
 		
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
 		YaksokInfoVO info=dao.selectYaksokInfoByURL(yaksokurl);

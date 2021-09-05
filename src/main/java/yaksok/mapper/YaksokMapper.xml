@@ -128,6 +128,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from yaksok_calendar where yidx=#{yidx}
 	</select>
 	
+	<!-- 약속 캘린더 일정의 cidx로 스케줄 정보 부르기 -->
+	<select id="selectYaksokCalendarSchedule" resultType="yaksok.model.YaksokCalendarVO"
+	parameterType="string">
+		select * from yaksok_calendar where cidx=#{cidx}
+	</select>
+	
+	<!-- 약속 캘린더 일정의 cidx로 스케줄 정보 수정 -->
+	<update id="updateYaksokCalendar" parameterType="yaksok.model.YaksokCalendarVO">
+		update yaksok_calendar 
+		set ctitle=#{ctitle}, ccontent=#{ccontent} where cidx=#{cidx}
+	</update>
+	
 </mapper>
 
 

@@ -56,7 +56,7 @@
             }
         }
         $(target).find("#custom_set_date").append(tag);
-        calMoveEvtFn();
+        
 
         function assembly(year, month) {
             var calendar_html_code =
@@ -82,8 +82,7 @@
                 "<tbody id='custom_set_date'>" +
                 "</tbody>" +
                 "</form>" +
-                "</table>" +
-                "<a class='btn btn-primary' href='#yaksokCalendarAddModal' data-toggle='modal'>등록</a>";
+                "</table>" 
             return calendar_html_code;
         }
 
@@ -92,66 +91,33 @@
             $(".custom_calendar_table").on("click", ".prev", function () {
                 nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() - 1, nowDate.getDate());
                 calendarMaker($(target), nowDate);
-                addList();
             });
             //다음달 클릭
             $(".custom_calendar_table").on("click", ".next", function () {
-           	 nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, nowDate.getDate());
-             calendarMaker($(target), nowDate);
-             addList();
-         });
-       	//일자 선택 클릭
-         $(".custom_calendar_table").on("click", "td", function () {
-         	$(".custom_calendar_table .select_day").removeClass("select_day");
-            $(this).removeClass("select_day").addClass("select_day");
-            var selectDay=$(".select_day .dayVal").html();
-        });
-        //추가 버튼 클릭
-        $("#yaksokAddButton").click(function() {
-        	var selectDay=$(".select_day .dayVal").html();
-        	insertCalendar(year,month,selectDay);
-        });
-        
-        //value 테스트
-      	/*   $(".dayVal").click(function() {
-        	alert('숫자')
-        }) 
-        
-        $(".dayList").click(function() {
-        	alert('문자')
-        })
-         */
-         
-     }
+	           	 nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, nowDate.getDate());
+	             calendarMaker($(target), nowDate);
+		    });
+	       	//일자 선택 클릭
+	        $(".custom_calendar_table").on("click", "td", function () {
+	        	 $(".custom_calendar_table .select_day").removeClass("select_day");
+	          	 $(this).removeClass("select_day").addClass("select_day");
+	           	 var selectDay=$(".select_day .dayVal").html();
+	       	});
+	       	 
+        }
     
-    function addList(){
-   	 	//alert(month+"/"+year)
-        	
-   	 	/* for(i = 1; i <= thisLastDay.getDate(); i++) {
-   	 			
-   	 		var dayVal = i;
-   	 		var monthVal = month;
-   	 		var yearVal = year;
-   	 		var arr = []; */
-			
+	    function addList(){
+				
        		"<c:forEach var='list' items='${calendarList}'>" +
-				$('#${list.cyear}-${list.cmonth}-${list.cday}').append('<div>${list.ctitle}</div>') +
+				$('#${list.cyear}-${list.cmonth}-${list.cday}').append('<div><a href="#" onclick="editCalendar(${list.yidx},${list.cidx})">${list.ctitle}</a></div>') +
 			"</c:forEach>" 
-
-   	 		
-   	 		
-        	/* 	$('#'+i).append(
-	                       		"<c:forEach var='list' items='${calendarList}'>" +
-			                       		"<c:if test='${list.cday eq "+String(dayVal)+"}'>" +
-	                       					"<div>${list.ctitle}</div>" +
-	                       				"</c:if>" +
-	                       		"</c:forEach>" 
-       		); */
-       	//}
    			
-   }
-       addList();   
+	   }
+	    addList();
+	   	calMoveEvtFn();
+          
 }
+    
 </script>
 </head>
 <body>
@@ -163,13 +129,34 @@
 					<div class="table-responsive">
 						
 						<!--  -->
-    					<div id="calendarForm" ></div>
+    					<div id="calendarForm" >
+    					</div>
     					<!--  -->
     					
     				</div>
     			</div>
     		</div>
     	</div>
+    	<div class="text-center">
+    	
+    		<!-- <a class='btn btn-primary' href='#yaksokCalendarAddModal' data-toggle='modal'>등록</a> -->
+    		
+    		<a class='btn btn-primary' href='#' onclick="yaksokCalendarAddModalShow()" data-toggle='modal'>등록</a>
+    		
+    	</div>
+    	
+    	<!-- yaksokCalendarEditModal.jsp의 데이터를 담을 div -->
+    	<div class="modal" id="yaksokCalendarEditModal">
+    	</div>
+    	
     <%@ include file="/yaksok/modal/yaksokCalendarAddModal.jsp"%>
 </body>
 </html>
+
+
+
+
+
+
+
+

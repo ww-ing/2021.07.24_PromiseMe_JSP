@@ -7,26 +7,30 @@ import common.controller.AbstractAction;
 import yaksok.model.YaksokCalendarVO;
 import yaksok.model.YaksokDAOMyBatis;
 
-public class YaksokCalendarAddAction extends AbstractAction {
+public class YaksokCalendarEditAction extends AbstractAction {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
+		
 		String yidx=req.getParameter("yidx");
+		String cidx=req.getParameter("cidx");
 		String ctitle=req.getParameter("ctitle");
 		String ccontent=req.getParameter("ccontent");
-		String cyear=req.getParameter("year");
-		String cmonth=req.getParameter("month");
-		String cday=req.getParameter("day");
 		
+		YaksokCalendarVO vo=new YaksokCalendarVO(cidx,ctitle,ccontent,null,null,null,null);
 		YaksokDAOMyBatis dao=new YaksokDAOMyBatis();
-		YaksokCalendarVO vo=new YaksokCalendarVO(null,ctitle,ccontent,cyear,cmonth,cday,yidx);
 		
-		dao.insertYaksokCalendar(vo);
-				
-		this.setRedirect(false);
-		this.setViewPage("yaksokCalendar.me?yidx="+yidx);
+		int n=dao.updateYaksokCalendar(vo);
+		
+		if(n>0) {
+			this.setRedirect(false);
+			this.setViewPage("yaksokCalendar.me?yidx="+yidx);
+			return;
+		}
 
+		
+		
 	}
 
 }
