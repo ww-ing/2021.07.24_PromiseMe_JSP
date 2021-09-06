@@ -16,7 +16,7 @@
         
         
         <script>
-        		/* 페이지 시작 시 발표 */
+        		/* 페이지 시작 시 첫 페이지를 테마 페이지로 지정 */
     			$(function(){
     				showMenu('yaksokSetForm');
     			})
@@ -37,7 +37,7 @@
     				})
     			}
         		
-    			//-------------------------------------------------약속 예약 정보 페이징
+    			//-------------------------------------------------약속 예약 정보
     			
     			/* yaksokReserveList.jsp 페이지의 약속 정보 리스트 */
     			function showCpage(cpage){
@@ -55,9 +55,35 @@
     				})
     			}
     			
-    			/* yaksokReserveList.jsp의 유저 정보 클릭 시 */
-				function yaksokReserveListUserInfo(ridx){
-					alert(ridx)
+    			/* yaksokReserveList.jsp의 yaksokReserveListUserInfoModal.jsp의 모달 보여주기 */
+    			function yaksokReserveListUserInfoModalShow(){
+    				$('#yaksokReserveListUserInfoModal').modal('show')
+    			}
+    			
+    			/* yaksokReserveList.jsp의 yaksokReserveListUserInfoModal.jsp의 모달 숨기기 */
+    			function yaksokReserveListUserInfoModalHide(){
+    				$('#yaksokReserveListUserInfoModal').modal('hide')
+    				showMenu('yaksokReserveList');
+    			}
+    			
+    			/* yaksokReserveList.jsp의 유저 정보 클릭 시 yaksokReserveListUserInfoModal.jsp의 모달에 데이터 전달하고 보여주기*/
+				function yaksokReserveListUserInfoModal(yidx,ridx){
+					
+					$.ajax({
+						type:'get',
+						url:'yaksokReserveListUserInfoModal.me?yidx='+yidx+'&&ridx='+ridx,
+						cache:false,
+						dataType:'html'
+						
+					}).done(function(res){
+						$('#yaksokReserveListUserInfoModal').html(res)
+						yaksokReserveListUserInfoModalShow();
+						
+					})
+					.fail(function(err){
+						alert('error: '+err.status);
+					})
+					
 				}
     			
     			//-------------------------------------------------약속 OnOff
@@ -145,17 +171,14 @@
     		    		dataType:'html'
     		    		
     		    	}).done(function(res){
-    		    		//yaksokCalendarEditModalShow();
     		    		$('#yaksokCalendarEditModal').html(res)
-    		    		$('#yaksokCalendarEditModal').modal('show')
+    		    		yaksokCalendarEditModalShow();
     		    	}) 
     		    	.fail(function(err){
     		    		alert('error: '+err.status);
     		    	})
     		    	
     		    }
-    			
-    			
     			
     			/* yaksokCalendar.jsp의 yaksokCalendarEditModal.jsp의 모달 일정 수정하기*/
     			function yaksokCalendarEdit(){

@@ -38,7 +38,7 @@
                                         
                                         <c:if test="${reserveList ne null and not empty reserveList}">
                                         <c:forEach var="list" items="${reserveList}">
-                                        <tr onclick="yaksokReserveListUserInfo(${list.ridx})">
+                                        <tr onclick="yaksokReserveListUserInfoModal(${list.yidx},${list.ridx})">
                                         	
                                             <td><input type="checkbox" name="" id="" class="custom-control-input"></td>
                                             <td>${list.rusername}</td>
@@ -76,3 +76,15 @@
                         </div>
                     </div>
                 </div>
+                <!-- yaksokReserveListUserInfoModal.jsp의 데이터를 담을 div -->
+    	<div class="modal" id="yaksokReserveListUserInfoModal">
+    	</div>
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	

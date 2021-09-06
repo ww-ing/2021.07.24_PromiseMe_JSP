@@ -60,7 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from yaksok_onoff where yidx=#{yidx}
 	</select>
 
-	<!-- 아이디로 모든 약속 부르기 -->
+	<!-- idx로 모든 약속 부르기 -->
 	<select id="selectAllYaksok" resultType="yaksok.model.YaksokVO"
 	parameterType="string">
 		select 
@@ -115,6 +115,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		) where
 		yn between #{start} and #{end}
 	</select>
+	
+	<!-- ridx로 약속 예약 유저 정보 가져오기 -->
+	<select id="selectYaksokReserve" resultType="yaksok.model.YaksokReserveVO"
+	parameterType="string">
+		select * from yaksok_reserve where ridx=#{ridx}
+	</select>
+	
+	<!-- ridx로 약속 예약 유저 정보 수정 -->
+	<update id="updateYaksokReserve" parameterType="string">
+		update yaksok_reserve set rcheckedstate = 0 where ridx=#{ridx}
+	</update>
 	
 	<!-- 약속 캘린더 일정 등록 -->
 	<insert id="insertYaksokCalendar" parameterType="yaksok.model.YaksokCalendarVO">

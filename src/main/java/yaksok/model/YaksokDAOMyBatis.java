@@ -188,7 +188,7 @@ public class YaksokDAOMyBatis {
 
 	}
 	
-	/**약속 예약 정보 리스트*/
+	/**약속 예약 유저 정보 리스트 페이징*/
 	public List<YaksokReserveVO> selectAllYaksokReserve(String yidx, int start, int end) {
 		try {
 			Map<String, String> map=new HashMap<>();
@@ -204,6 +204,30 @@ public class YaksokDAOMyBatis {
 			close();
 		}
 		
+	}
+	
+	/**약속 예약 유저 정보*/
+	public YaksokReserveVO selectYaksokReserve(String ridx) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			YaksokReserveVO info=ses.selectOne(NS+".selectYaksokReserve",ridx);
+			return info;
+			
+		} finally {
+			close();
+		}
+	}
+	
+	/**약속 예약 유저 정보 수정*/
+	public int updateYaksokReserve(String ridx) {
+		try {
+			ses=this.getSessionFactory().openSession(true);
+			int n=ses.update(NS+".updateYaksokReserve",ridx);
+			return n;
+			
+		} finally {
+			close();
+		}
 	}
 	
 	//---------------------캘린더

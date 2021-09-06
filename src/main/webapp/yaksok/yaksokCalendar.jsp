@@ -146,8 +146,7 @@
     	</div>
     	
     	<!-- yaksokCalendarEditModal.jsp의 데이터를 담을 div -->
-    	<div class="modal" id="yaksokCalendarEditModal">
-    	</div>
+    	<div class="modal" id="yaksokCalendarEditModal"></div>
     	
     <%@ include file="/yaksok/modal/yaksokCalendarAddModal.jsp"%>
 </body>
