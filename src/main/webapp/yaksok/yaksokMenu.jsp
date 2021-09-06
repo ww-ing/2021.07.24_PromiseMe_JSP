@@ -55,6 +55,11 @@
     				})
     			}
     			
+    			/* yaksokReserveList.jsp의 유저 정보 클릭 시 */
+				function yaksokReserveListUserInfo(ridx){
+					alert(ridx)
+				}
+    			
     			//-------------------------------------------------약속 OnOff
     			
     			/* yaksoksetting.jsp 페이지의 약속 OnOff 정보 업데이트*/

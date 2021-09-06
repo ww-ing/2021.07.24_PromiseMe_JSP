@@ -266,7 +266,6 @@ public class YaksokDAOMyBatis {
 		}
 	}
 	
-	
 	private void close() {
 		if(ses!=null) ses.close();
 		

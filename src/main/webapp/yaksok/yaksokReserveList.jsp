@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    			
+
+	
     			<!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -20,7 +21,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th><input type="checkbox" name="" id="" class="custom-control-input"></th>
                                             <th>이름</th>
                                             <th>전화번호</th>
                                             <th>메모</th>
@@ -37,13 +38,21 @@
                                         
                                         <c:if test="${reserveList ne null and not empty reserveList}">
                                         <c:forEach var="list" items="${reserveList}">
-                                        <tr>
-                                            <td>${list.ridx}</td>
+                                        <tr onclick="yaksokReserveListUserInfo(${list.ridx})">
+                                        	
+                                            <td><input type="checkbox" name="" id="" class="custom-control-input"></td>
                                             <td>${list.rusername}</td>
                                             <td>${list.rhp}</td>
                                             <td>${list.rcontent}</td>
                                             <td>${list.rindate}</td>
-                                            <td>${list.rcheckedstate}</td>
+                                            
+                                            <c:if test="${list.rcheckedstate eq '1' }">
+                                            <td class="text-danger">미확인</td>
+                                            </c:if>
+                                            <c:if test="${list.rcheckedstate eq '0' }">
+                                            <td class="text-primary">확인</td>
+                                            </c:if>
+                                            
                                         </tr>
                                         </c:forEach>
                                         </c:if>
