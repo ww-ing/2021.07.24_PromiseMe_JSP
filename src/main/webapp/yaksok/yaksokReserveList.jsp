@@ -21,7 +21,6 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th><input type="checkbox" name="" id="" class="custom-control-input"></th>
                                             <th>이름</th>
                                             <th>전화번호</th>
                                             <th>메모</th>
@@ -40,7 +39,6 @@
                                         <c:forEach var="list" items="${reserveList}">
                                         <tr onclick="yaksokReserveListUserInfoModal(${list.yidx},${list.ridx})">
                                         	
-                                            <td><input type="checkbox" name="" id="" class="custom-control-input"></td>
                                             <td>${list.rusername}</td>
                                             <td>${list.rhp}</td>
                                             <td>${list.rcontent}</td>
@@ -79,12 +77,4 @@
                 <!-- yaksokReserveListUserInfoModal.jsp의 데이터를 담을 div -->
     	<div class="modal" id="yaksokReserveListUserInfoModal">
     	</div>
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     	

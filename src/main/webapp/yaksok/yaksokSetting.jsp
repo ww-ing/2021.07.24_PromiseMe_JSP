@@ -11,21 +11,23 @@
 
 <form name="settingF" action="#" method="post">
 	<input type="hidden" name="yidx" value="${onoffData.yidx}">
-	<h3>설정</h3>
 	<div class="m-5">
-			약속:	
+			예약 페이지:	
 			<br>
 		<div class="mb-3">
 			<input type="checkbox" data-toggle="toggle" name="yaksokOnOff" ${yaksokonoffCheck}>
 		</div>
 	
-			캘린더:
+			일정 캘린더:
 			<br>			
 		<div class="mb-3">
 			<input type="checkbox" data-toggle="toggle" name="calendarOnOff" ${calendaronoffCheck}>
 		</div>
-			
-			중복 예약:
+		
+			<input type="hidden" data-toggle="toggle" name="overlapOnOff" value="1">
+			<input type="hidden" data-toggle="toggle" name="payOnOff" value="1">
+			<input type="hidden" data-toggle="toggle" name="maxreserveOnOff" value="1">
+			<%-- 중복 예약:
 			<br>		
 		<div class="mb-3">
 			<input type="checkbox" data-toggle="toggle" name="overlapOnOff" ${overlaponoffCheck}>
@@ -40,7 +42,11 @@
 			<br>
 		<div class="mb-3">
 			<input type="checkbox" data-toggle="toggle" name="maxreserveOnOff" ${maxreserveonoffCheck}>
-		</div>	
+		</div>	 --%>
+		<br>
+		<div class="mb-3">
+			<a class="btn btn-primary" onclick="updateSetting()">저장</a>
+		</div>
 	</div>
-	<a class="btn btn-primary" onclick="updateSetting()">저장</a>
+	
 </form>

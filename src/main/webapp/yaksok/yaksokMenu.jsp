@@ -14,6 +14,10 @@
         <link href="yaksok/css/styles.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
+        <!--  통계 페이지 js -->
+        <!-- Load d3.js and c3.js -->
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="yaksok/js/c3.min.js"></script>
         
         <script>
         		/* 페이지 시작 시 첫 페이지를 테마 페이지로 지정 */
@@ -39,7 +43,7 @@
         		
     			//-------------------------------------------------약속 예약 정보
     			
-    			/* yaksokReserveList.jsp 페이지의 약속 정보 리스트 */
+    			/* yaksokReserveList.jsp 페이지의 약속 정보 리스트 페이징처리*/
     			function showCpage(cpage){
     				$.ajax({
     					type:'get',
@@ -63,7 +67,7 @@
     			/* yaksokReserveList.jsp의 yaksokReserveListUserInfoModal.jsp의 모달 숨기기 */
     			function yaksokReserveListUserInfoModalHide(){
     				$('#yaksokReserveListUserInfoModal').modal('hide')
-    				showMenu('yaksokReserveList');
+    				showCpage('1');
     			}
     			
     			/* yaksokReserveList.jsp의 유저 정보 클릭 시 yaksokReserveListUserInfoModal.jsp의 모달에 데이터 전달하고 보여주기*/
@@ -223,6 +227,7 @@
     			
     			/* 뭔지 찾아봐야 됨 기억안남 */
     		    function submit() {
+    				alert('asdasd')
     		        document.forms["info"].submit();
     		    }
     		</script>
@@ -235,7 +240,7 @@
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokSetForm')">테마</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokCalendar')">일정관리</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokReserveList')">예약관리</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showCpage('1')">예약관리</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokStatistics')">통계</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showMenu('yaksokSetting')">설정</a>
                     
