@@ -225,11 +225,12 @@
     				})
     			}
     			
-    			/* 뭔지 찾아봐야 됨 기억안남 */
+    			/* 테스트 */
     		    function submit() {
-    				alert('asdasd')
+    				alert('테스트');
     		        document.forms["info"].submit();
     		    }
+    			
     		</script>
     </head>
     <body>

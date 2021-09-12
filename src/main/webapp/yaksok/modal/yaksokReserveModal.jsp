@@ -15,9 +15,11 @@
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <form action="yaksokReserve.me" method="post">
+                        	<c:if test="${onoffData.calendaronoff eq 1 }">
                         	<div class="form-group" align="right">
                         		<a class="btn btn-primary" href="#yaksokCalendarModal" data-toggle="modal">일정</a>
                         	</div>
+                        	</c:if>
                         	<input type="hidden" name="yidx" value="${info.yidx}">
                         	<input type="hidden" name="yaksokurl" value="${info.yaksokurl}">
                             <div class="form-group">

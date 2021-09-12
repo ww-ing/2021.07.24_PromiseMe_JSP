@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import common.controller.AbstractAction;
 import yaksok.model.YaksokDAOMyBatis;
 import yaksok.model.YaksokInfoVO;
+import yaksok.model.YaksokOnOffVO;
 
 public class YaksokReservePageAction extends AbstractAction {
 
@@ -20,6 +21,9 @@ public class YaksokReservePageAction extends AbstractAction {
 		
 		String template=info.getTemplates();
 		req.setAttribute("info", info);
+		
+		YaksokOnOffVO onoffData=dao.selectYaksokOnOff(info.getYidx());
+		req.setAttribute("onoffData", onoffData);
 		
 		this.setRedirect(false);
 		this.setViewPage("yaksok/templates_reserve/template"+template+"/template"+template+".jsp");

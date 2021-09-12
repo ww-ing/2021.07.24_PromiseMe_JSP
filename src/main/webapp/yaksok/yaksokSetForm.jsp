@@ -44,8 +44,8 @@
 			<button type="button" onclick="showTemplate('1','0')">템플릿1</button>
 			<button type="button" onclick="showTemplate('2','0')">템플릿2</button>
 			<button type="button" onclick="showTemplate('3','0')">템플릿3</button>
-			<button type="button" onclick="showTemplate('4','0')">템플릿4</button>
-			<button type="button" onclick="showTemplate('5','0')">템플릿5</button>
+			<!-- <button type="button" onclick="showTemplate('4','0')">템플릿4</button> -->
+			<!-- <button type="button" onclick="showTemplate('5','0')">템플릿5</button> -->
 		</div>				
 	<div id="template" class="pt-3"></div>
     </body>

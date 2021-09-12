@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
     <head>
         <meta charset="utf-8" />
@@ -20,6 +22,8 @@
 	</head>	
 		
 		<body>
+		<c:if test="${onoffData.yaksokonoff eq 1}">
+		
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
@@ -102,6 +106,14 @@
         <footer class="py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; (주) 약속하는사람들 2021</p></div>
         </footer>
+        </c:if>
+        
+        <c:if test="${onoffData.yaksokonoff eq 0}" >
+	        <div class="text-primary text-center">
+	        <h1>해당 약속은 현재 준비중입니다.</h1>
+	        </div>
+        </c:if>
+        
         <!-- yaksokBookingModal.jsp의 소스를 include------------------------ -->
 		<%@ include file="/yaksok/modal/yaksokReserveModal.jsp"%>
   		<!-- ------------------------------------------------------------- --> 

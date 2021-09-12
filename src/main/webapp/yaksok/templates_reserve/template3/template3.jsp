@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
     <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <html>
     <head>
         <meta charset="utf-8" />
@@ -17,6 +19,8 @@
 		</head>
 		
 		<body>
+		<c:if test="${onoffData.yaksokonoff eq 1}">
+		
         <!-- Header - set the background image for the header in the line below-->
         <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
             <div class="text-center my-5">
@@ -76,9 +80,16 @@
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; (주) 약속하는사람들 2021 </p></div>
         </footer>
+        </c:if>
+        
+        <c:if test="${onoffData.yaksokonoff eq 0}" >
+	        <div class="text-primary text-center">
+	        <h1>해당 약속은 현재 준비중입니다.</h1>
+	        </div>
+        </c:if>
 		<!-- yaksokBookingModal.jsp의 소스를 include------------------------ -->
 		<%@ include file="/yaksok/modal/yaksokReserveModal.jsp"%>
- 		<!-- -----------------------------------
- 		-------------------------- -->          
+ 		<!-- ------------------------------------------------------------- -->          
+
 	</body>
 </html>

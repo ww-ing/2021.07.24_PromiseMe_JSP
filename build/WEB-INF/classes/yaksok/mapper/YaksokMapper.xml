@@ -122,10 +122,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from yaksok_reserve where ridx=#{ridx}
 	</select>
 	
-	<!-- ridx로 약속 예약 유저 정보 수정 -->
+	<!-- ridx로 약속 예약 유저 정보의 rcheckedstate를 비확인에서 확인으로 수정 -->
 	<update id="updateYaksokReserve" parameterType="string">
 		update yaksok_reserve set rcheckedstate = 0 where ridx=#{ridx}
 	</update>
+	
+	<!-- 약속 예약 정보의 중복되지 않는(1회만 예약한) 유저의 수 -->
+	<select id="selectYaksokReserveNotOverlapCount" resultType="int"
+	parameterType="string">
+		select count(*) from(
+		select rhp, count(*) 
+		from yaksok_reserve where yidx=#{yidx}
+		group by rhp having count(*) = 1)
+	</select>
+	
+	<!-- yidx로 약속 예약 정보의 중복을 제거한 유저 수 -->
+	<select id="selectYaksokReserveUserCount" resultType="int"
+	parameterType="string">
+		select count(*) 
+		from(
+		select distinct rhp 
+		from yaksok_reserve 
+		where yidx=#{yidx})
+	</select>
+	
+	<!-- yidx로 약속 예약 정보의 예약된 year리스트 모두 가져오기 -->
+	<select id="getAllYaksokReserveYearList" resultType="string"
+	parameterType="string">
+		select distinct (to_char(rindate,'YY')) yearList
+		from yaksok_reserve where yidx=#{yidx} order by yearList desc
+	</select>
+	
+	<!-- yidx와 year갑으로 약속 예약 정보의 해당 year에 예약된 month리스트 모두 가져오기 -->
+	<select id="getAllYaksokReserveMonthList" resultType="string"
+	parameterType="hashmap">
+		select distinct (to_char(rindate,'MM')) monthDate
+		from yaksok_reserve 
+		where yidx=#{yidx} and to_char(rindate,'YY') = #{year}
+		order by monthDate desc
+	</select>
 	
 	<!-- 약속 캘린더 일정 등록 -->
 	<insert id="insertYaksokCalendar" parameterType="yaksok.model.YaksokCalendarVO">
@@ -157,8 +192,3 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 </mapper>
-
-
-
-
-
